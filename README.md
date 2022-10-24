@@ -1,5 +1,5 @@
 # Dicoding Capstone Project C22-142
-Cashtex, Website-Based Textile Fabric Store Cashier Application
+Cashtex, Web-Based Application Cashier Textile Fabric Store
 --
 *Project Team*
 - F500X1053 - Reza Ferdian
