@@ -8,7 +8,7 @@ module.exports = {
   },
   devServer: {
     static: path.resolve(__dirname, 'dist'),
-    port: 8142,
+    port: 22142,
     hot: true
   },
   module: {
