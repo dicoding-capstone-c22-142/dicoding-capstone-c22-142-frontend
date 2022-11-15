@@ -9,7 +9,7 @@ Cashtex, Web-Based Application Cashier Textile Fabric Store
 
 
 # Usage
-* Go to project root e.g. `./dicoding-capstone-c22-142`
+* Go to project root e.g. `./dicoding-capstone-c22-142-frontend`
 
 * Install package via npm:
 `npm install`
