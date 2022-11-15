@@ -1,4 +1,4 @@
-# Dicoding Capstone Project C22-142
+# Dicoding Capstone Project C22-142 Front-End
 Cashtex, Web-Based Application Cashier Textile Fabric Store
 --
 *Project Team*
