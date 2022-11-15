@@ -1,0 +1,37 @@
+{
+  "name": "dicoding-capstone-c22-142",
+  "version": "1.0.0",
+  "description": "Cashtex, Web-Based Application Cashier Textile Fabric Store\r --\r *Project Team*\r - F500X1053 - Reza Ferdian\r - F452X0982 - Faturrachman Mochammad\r - F120X0179 - Gregorius Damar Prakoso Pulunggono\r - F500X1051 - Aldi Findani",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faturra/dicoding-capstone-c22-142.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faturra/dicoding-capstone-c22-142/issues"
+  },
+  "homepage": "https://github.com/faturra/dicoding-capstone-c22-142#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "css-loader": "^6.7.2",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss-loader": "^7.0.1",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.2"
+  }
+}
