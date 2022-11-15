@@ -1,5 +1,5 @@
 {
-  "name": "dicoding-capstone-c22-142",
+  "name": "dicoding-capstone-c22-142-frontend",
   "version": "1.0.0",
   "description": "Cashtex, Web-Based Application Cashier Textile Fabric Store\r --\r *Project Team*\r - F500X1053 - Reza Ferdian\r - F452X0982 - Faturrachman Mochammad\r - F120X0179 - Gregorius Damar Prakoso Pulunggono\r - F500X1051 - Aldi Findani",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/faturra/dicoding-capstone-c22-142.git"
+    "url": "git+https://github.com/dicoding-capstone-c22-142/dicoding-capstone-c22-142-frontend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/faturra/dicoding-capstone-c22-142/issues"
+    "url": "https://github.com/dicoding-capstone-c22-142/dicoding-capstone-c22-142-frontend/issues"
   },
-  "homepage": "https://github.com/faturra/dicoding-capstone-c22-142#readme",
+  "homepage": "https://github.com/dicoding-capstone-c22-142/dicoding-capstone-c22-142-frontend#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "css-loader": "^6.7.2",
