@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>CashTex</title>
+  </head>
+  <body>
+    <app-bar></app-bar>
+    <div class="wrapper">
+    </div>
+
+    <!-- Modal for Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title text-center w-100 font-weight-bold" id="loginModalLabel">Sign Up</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="#">
+            <div class="modal-body">
+              <div class="input-field mb-3">
+                <input type="email" placeholder="Enter your email" required>
+                <i class="uil uil-envelope-alt icon"></i>
+              </div>
+              <div class="input-field mb-3">
+                <input type="password" class="password" placeholder="Enter your password" required>
+                <i class="uil uil-lock icon"></i>
+                <i class="uil uil-eye-slash showHidePw"></i>
+              </div>
+              <div class="form-check mb-3">
+                <div class="checkbox-text">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Remember me
+                  </label>
+                </div>
+                <a href="#" class="text-secondary">Forgot Password?</a>
+              </div>
+              <button type="button" class="btn btn-primary mb-3">Login Now</button>
+              <p class="text-center">
+                Not a member? <a href="#/register" class="text-secondary">Signup now</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer-bar></footer-bar>
+  </body>
+</html>

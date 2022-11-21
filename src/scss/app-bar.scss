@@ -1,0 +1,191 @@
+app-bar {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 99;
+
+    a, button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px;
+      color: black;
+      font-weight: 600;
+    }
+    
+    h2 {
+      padding-left: 10px;
+      color: white;
+      font-size: 1.8em;
+    }
+    
+    .drawer {
+      display: flex;
+      width: 85%;
+      margin-left: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    ul {
+      display: flex;
+    }
+    
+    ul li {
+      list-style: none;
+    }
+    
+    ul li a:hover {
+      color: white;
+    }
+    
+    .signup {
+      background-color: black;
+    }
+    
+    
+    .signup {
+      background-color: black;
+      color: white;
+      padding: 10px 50px;
+      border-radius:25px;
+      margin-left: 10px;
+      transition: .4s;
+    }
+    
+    .signup:hover {
+      background-color: white;
+      color: black;
+    }
+    
+    .btn-login {
+      background-color: transparent;
+      border: 2px solid white;
+      border-radius: 25px;
+      cursor: pointer;
+      padding: 10px 20px;
+      font-size: 1em;
+      transition: .2s;
+    }
+    
+    .btn-login:hover {
+      background-color: white;
+      color: black;
+      border-color: white;
+    }
+    
+    .registration {
+      margin-right: 20px;
+    }
+    
+    #nav-toggle {
+      display: none;
+    }
+}
+.active-nav {
+    background-color: #1c2a35;
+    transition: all 350ms ease-in-out;
+    .signup {
+      background-color: white;
+      color: black;
+    }
+    .signup:hover {
+      background-color: #e2dbda;
+    }
+    .btn-login {
+      color: white;
+    }
+    .btn-login:hover{
+      border-color: white;
+    }
+    .drawer ul a {
+      color: white;
+    }
+    .drawer ul a:hover {
+      color: #e2dbda;
+    }
+}
+
+
+@media only screen and (max-width: 680px) {
+    app-bar {
+        .drawer {
+            flex-direction: column;
+            justify-content: flex-start;
+            position: fixed;
+            transform: translateX(100%);
+            inset: 0 0 0 30%;
+            padding: min(30vh, 10rem) 1em;
+            background-color: hsl(0 0% 0% / 0.5);
+            transition: all 350ms ease-in;
+            z-index: 9999;
+            display: block;
+        }
+        
+        @supports (backdrop-filter: blur(1.5rem)) {
+            .drawer {
+            background-color: hsl(0 0% 100% / 0.1);
+            backdrop-filter: blur(1.5rem);
+            }
+        }
+
+        ul {
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .btn-login {
+            margin-bottom: 10px;
+        }
+
+        .signup {
+            padding: 10px 20px;
+        }
+
+        #nav-toggle {
+            display: block;
+            background-color: transparent;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            width: 44px;
+            height: 53px;
+            padding: 10px;
+            margin-right: 22px;
+            cursor: pointer;
+            z-index: 9999;
+            }
+
+        #nav-toggle span {
+            width: 100%;
+            height: 3px;
+            background-color: #E0E0E0;
+            transition: all 350ms;
+        }
+
+        #nav-toggle span.rotate45 {
+            position: relative;
+            top: 5px;
+            left: 5px;
+            transform-origin: 0 0;
+            transform: rotate(45deg);
+        }
+
+        #nav-toggle span.rotate-45 {
+            position: relative;
+            top: 3px;
+            left: 5px;
+            transform-origin: 0 100%;
+            transform: rotate(-45deg);
+        }
+
+        #nav-toggle span.isLost {
+            transform: scale(0);
+        }
+
+        .open {
+            transform: translate(0, 0);
+        }
+    }
+}

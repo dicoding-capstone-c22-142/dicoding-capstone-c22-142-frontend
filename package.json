@@ -2,10 +2,11 @@
   "name": "dicoding-capstone-c22-142-frontend",
   "version": "1.0.0",
   "description": "Cashtex, Web-Based Application Cashier Textile Fabric Store\r --\r *Project Team*\r - F500X1053 - Reza Ferdian\r - F452X0982 - Faturrachman Mochammad\r - F120X0179 - Gregorius Damar Prakoso Pulunggono\r - F500X1051 - Aldi Findani",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start-dev": "webpack serve --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "serve": "http-server dist"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,16 @@
   },
   "homepage": "https://github.com/dicoding-capstone-c22-142/dicoding-capstone-c22-142-frontend#readme",
   "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
     "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.2",
+    "eslint": "^8.27.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.1",
     "sass": "^1.56.1",
