@@ -1,4 +1,4 @@
-import { createLandingPage } from '../templates/template-creator';
+import { createLandingPage } from '../../templates/template-creator';
 
 const Home = {
   async render() {
