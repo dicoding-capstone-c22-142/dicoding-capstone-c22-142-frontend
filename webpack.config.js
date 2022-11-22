@@ -4,11 +4,19 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: './src/scripts/main.js',
+  entry: {
+    home: './src/scripts/main.js',
+    cashier: '/src/scripts/cashier.js',
+  },
   output: {
-    filename: 'main.[contenthash].js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   devServer: {
     static: path.resolve(__dirname, 'dist'),
@@ -45,7 +53,16 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'Home',
+      filename: 'index.html',
       template: './src/templates/index.html',
+      chunks: ['home'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Cashier',
+      filename: 'cashier/index.html',
+      template: './src/templates/cashier.html',
+      chunks: ['cashier'],
     }),
     new MiniCssExtractPlugin({
       filename: 'main.[contenthash].css',
