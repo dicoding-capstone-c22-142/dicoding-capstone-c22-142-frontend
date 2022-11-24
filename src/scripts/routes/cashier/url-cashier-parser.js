@@ -13,14 +13,14 @@ const CashierUrlParser = {
   _urlSplitter(url) {
     const urlsSplits = url.split('/');
     return {
-      id: urlsSplits[1] || null,
-      verb: urlsSplits[2] || null,
+      verb: urlsSplits[1] || null,
+      id: urlsSplits[2] || null,
     };
   },
 
   _urlCombiner(splitedUrl) {
-    return (splitedUrl.id ? '/:id' : '')
-      + (splitedUrl.verb ? `/${splitedUrl.verb}` : '');
+    return (splitedUrl.verb ? `/${splitedUrl.verb}` : '/')
+      + (splitedUrl.id ? '/:id' : '');
   },
 };
 

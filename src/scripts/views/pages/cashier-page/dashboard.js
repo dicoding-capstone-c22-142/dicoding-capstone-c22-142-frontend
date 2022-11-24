@@ -92,7 +92,7 @@ const Dashboard = {
                       </div>
                       <div class="card-content">
                           <p class="category"><strong>Revenue</strong></p>
-                          <h3 class="card-title">$23,100</h3>
+                          <h5 class="card-title">Rp 23.000.000</h5>
                       </div>
                       <div class="card-footer">
                           <div class="stats">
@@ -125,8 +125,8 @@ const Dashboard = {
               <div class="col-md-12">
                   <div class="card" style="min-height: 485px">
                       <div class="card-header card-header-text">
-                          <h4 class="card-title">Employees Stats</h4>
-                          <p class="category">New employees on 15th December, 2016</p>
+                          <h4 class="card-title">Status Karyawan</h4>
+                          <p class="category">New employees on 15th November, 2022</p>
                       </div>
                       <div class="card-content table-responsive">
                           <table class="table table-hover">
@@ -134,52 +134,34 @@ const Dashboard = {
                                   <tr>
                                       <th>ID</th>
                                       <th>Name</th>
-                                      <th>Salary</th>
-                                      <th>Country</th>
+                                      <th>No Hp</th>
+                                      <th>Alamat</th>
                                   </tr>
                               </thead>
                               <tbody>
                                   <tr>
                                       <td>1</td>
-                                      <td>Bob Williams</td>
-                                      <td>$23,566</td>
-                                      <td>USA</td>
+                                      <td>Reza Ferdian</td>
+                                      <td>0812345678</td>
+                                      <td>Gampong Lampoh Krueng</td>
                                   </tr>
                                   <tr>
                                       <td>2</td>
-                                      <td>Mike Tyson</td>
-                                      <td>$10,200</td>
-                                      <td>Canada</td>
+                                      <td>Aldi Findani</td>
+                                      <td>08987654321</td>
+                                      <td>Gajah Aye</td>
                                   </tr>
                                   <tr>
                                       <td>3</td>
-                                      <td>Tim Sebastian</td>
-                                      <td>$32,190</td>
+                                      <td>Damar</td>
+                                      <td>083246542343</td>
                                       <td>Netherlands</td>
                                   </tr>
                                   <tr>
                                       <td>4</td>
-                                      <td>Philip Morris</td>
-                                      <td>$31,123</td>
+                                      <td>Rahmat</td>
+                                      <td>08345253845</td>
                                       <td>Korea, South</td>
-                                  </tr>
-                                  <tr>
-                                      <td>5</td>
-                                      <td>Minerva Hooper</td>
-                                      <td>$23,789</td>
-                                      <td>South Africa</td>
-                                  </tr>
-                                  <tr>
-                                      <td>6</td>
-                                      <td>Hulk Hogan</td>
-                                      <td>$43,120</td>
-                                      <td>Netherlands</td>
-                                  </tr>
-                                  <tr>
-                                      <td>7</td>
-                                      <td>Angelina Jolie </td>
-                                      <td>$12,140</td>
-                                      <td>Australia</td>
                                   </tr>
                               </tbody>
                           </table>

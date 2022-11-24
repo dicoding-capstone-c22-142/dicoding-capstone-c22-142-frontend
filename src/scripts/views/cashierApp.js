@@ -9,6 +9,7 @@ class CashierApp {
 
   async renderPage() {
     const url = CashierUrlParser.parseActiveUrlWithCombiner();
+    console.log(url);
     const page = cashierRoutes[url];
     this._content.innerHTML = await page.render();
     await page.afterRender();
