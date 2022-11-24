@@ -8,12 +8,12 @@ import NotFoundPage from '../../views/pages/404';
 
 const cashierRoutes = {
   '/': Dashboard,
-  '/users/:id/dashboard': Dashboard,
-  '/users/:id/manage': Manage,
-  '/users/:id/transaction': Transaction,
-  '/users/:id/report': Report,
-  '/users/:id/transaction-history': TransactionHistory,
-  '/users/:id/profile': Profile,
+  '/dashboard': Dashboard,
+  '/manage': Manage,
+  '/transaction': Transaction,
+  '/report': Report,
+  '/transaction-history': TransactionHistory,
+  '/profile': Profile,
   '/404': NotFoundPage,
 };
 

@@ -60,12 +60,12 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Cashier',
-      filename: 'cashier/index.html',
+      filename: 'kasir/index.html',
       template: './src/templates/cashier.html',
       chunks: ['cashier'],
     }),
     new MiniCssExtractPlugin({
-      filename: 'main.[contenthash].css',
+      filename: '[name].[contenthash].css',
     }),
     new CopyWebpackPlugin({
       patterns: [
