@@ -11,7 +11,7 @@ class SideBar extends HTMLElement {
         </div>
         <ul class="list-unstyled components">
             <li class="active">
-                <a href="/cashier/#/dashboard" class="dashboard"><i class="uil uil-home"></i><span>Dashboard</span></a>
+                <a href="/kasir/#/dashboard" class="dashboard"><i class="uil uil-home"></i><span>Dashboard</span></a>
             </li>
 
             <div class="small-screen navbar-display">
@@ -25,16 +25,16 @@ class SideBar extends HTMLElement {
             </div>
 
             <li class="">
-                <a href="/cashier/#/manage"><i class="uil uil-book-medical"></i><span>Kelola Produk</span></a>
+                <a href="/kasir/#/manage"><i class="uil uil-book-medical"></i><span>Kelola Produk</span></a>
             </li>
             <li class="">
-                <a href="/cashier/#/transaction"><i class="uil uil-transaction"></i><span>Transaksi</span></a>
+                <a href="/kasir/#/transaction"><i class="uil uil-transaction"></i><span>Transaksi</span></a>
             </li>
             <li class="">
-                <a href="/cashier/#/report"><i class="uil uil-file-graph"></i><span>Laporan</span></a>
+                <a href="/kasir/#/report"><i class="uil uil-file-graph"></i><span>Laporan</span></a>
             </li>
             <li class="">
-                <a href="/cashier/#/transaction-history"><i class="uil uil-history"></i><span>Riwayat Transaksi</span></a>
+                <a href="/kasir/#/transaction-history"><i class="uil uil-history"></i><span>Riwayat Transaksi</span></a>
             </li>
         </ul>
     </nav>

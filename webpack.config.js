@@ -60,7 +60,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'Cashier',
-      filename: 'cashier/index.html',
+      filename: 'kasir/index.html',
       template: './src/templates/cashier.html',
       chunks: ['cashier'],
     }),
