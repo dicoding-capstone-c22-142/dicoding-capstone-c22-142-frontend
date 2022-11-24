@@ -65,7 +65,7 @@ module.exports = {
       chunks: ['cashier'],
     }),
     new MiniCssExtractPlugin({
-      filename: 'main.[contenthash].css',
+      filename: '[name].[contenthash].css',
     }),
     new CopyWebpackPlugin({
       patterns: [

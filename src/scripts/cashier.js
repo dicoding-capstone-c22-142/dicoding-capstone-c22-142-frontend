@@ -1,16 +1,9 @@
 import './components/side-bar';
-import './utils/pwShowHide';
-import '../scss/styles.scss';
-
+import * as bootstrap from 'bootstrap';
+import '../scss/cashier-dashboard.scss';
 import CashierApp from './views/cashierApp';
 
-const cashierApp = new CashierApp({
-  sideBar: document.querySelector('side-bar'),
-  toggle: document.querySelector('.toggle'),
-  modeSwitch: document.querySelector('.mode'),
-  modeText: document.querySelector('.mode-text'),
-  content: document.querySelector('.content'),
-});
+const cashierApp = new CashierApp(document.querySelector('.main'));
 
 window.addEventListener('hashchange', () => {
   cashierApp.renderPage();
