@@ -5,83 +5,39 @@ class SideBar extends HTMLElement {
 
   render() {
     this.innerHTML = `
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <!--<img src="logo.png" alt="">-->
-                </span>
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3><img src="img/logo.png" class="img-fluid" /><span>cashtex</span></h3>
+        </div>
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="/kasir/#/dashboard" class="dashboard"><i class="uil uil-home"></i><span>Dashboard</span></a>
+            </li>
 
-                <div class="text logo-text">
-                    <span class="name">MulyaTex</span>
-                    <span class="profession">Kota Sigli</span>
-                </div>
+            <div class="small-screen navbar-display">
+                <li class="d-lg-none d-md-block d-xl-none d-sm-block">
+                    <a href="/#/profile"><i class="uil uil-user-circle"></i><span>user</span></a>
+                </li>
+
+                <li class="d-lg-none d-md-block d-xl-none d-sm-block">
+                    <a href="/#/settings"><i class="uil uil-setting"></i><span>setting</span></a>
+                </li>
             </div>
 
-            <i class="uil uil-angle-right toggle icon"></i>
-        </header>
-
-    <div class="menu-bar">
-        <div class="menu">
-            <ul class="menu-links">
-                <li class="nav-link">
-                    <a href="#/users/:id/dashboard">
-                        <i class="uil uil-house-user icon"></i>
-                        <span class="text nav-text">Dashboard</span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#/users/:id/transaction">
-                        <i class="uil uil-transaction icon"></i>
-                        <span class="text nav-text">Transaksi</span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#/users/1/manage">
-                        <i class="uil uil-book-medical icon"></i>
-                        <span class="text nav-text">Kelola Produk</span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#/users/1/report">
-                        <i class="uil uil-file-graph icon"></i>
-                        <span class="text nav-text">Laporan</span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#/users/1/transaction-history">
-                        <i class="uil uil-history icon"></i>
-                        <span class="text nav-text">Riwayat Transaksi</span>
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-
-        <div class="bottom-content">
             <li class="">
-                <a href="/">
-                    <i class="uil uil-signout icon"></i>
-                    <span class="text nav-text">Logout</span>
-                </a>
+                <a href="/kasir/#/manage"><i class="uil uil-book-medical"></i><span>Kelola Produk</span></a>
             </li>
-
-            <li class="mode">
-                <div class="sun-moon">
-                    <i class="uil uil-moon icon moon"></i>
-                    <i class="uil uil-sun icon sun"></i>
-                </div>
-                <span class="mode-text text">Dark mode</span>
-
-                <div class="toggle-switch">
-                    <span class="switch"></span>
-                </div>
+            <li class="">
+                <a href="/kasir/#/transaction"><i class="uil uil-transaction"></i><span>Transaksi</span></a>
             </li>
-        </div>
-    </div>
+            <li class="">
+                <a href="/kasir/#/report"><i class="uil uil-file-graph"></i><span>Laporan</span></a>
+            </li>
+            <li class="">
+                <a href="/kasir/#/transaction-history"><i class="uil uil-history"></i><span>Riwayat Transaksi</span></a>
+            </li>
+        </ul>
+    </nav>
     `;
   }
 }
