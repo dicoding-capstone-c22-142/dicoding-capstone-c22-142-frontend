@@ -12,16 +12,6 @@ const SideBarInitiator = {
     bodyOverlay.addEventListener('click', (event) => {
       this._toggleShowNav(event, sideBar, bodyOverlay);
     });
-
-    const list = sideBar.querySelectorAll('li');
-    list.forEach((element) => {
-      element.addEventListener('click', () => {
-        list.forEach((active) => {
-          active.classList.remove('active');
-        });
-        element.classList.add('active');
-      });
-    });
   },
 
   _toggleSideBar(event, sideBar, content) {
