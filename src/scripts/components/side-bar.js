@@ -24,16 +24,16 @@ class SideBar extends HTMLElement {
                 </li>
             </div>
 
-            <li class="">
+            <li>
                 <a href="/kasir/#/manage"><i class="uil uil-book-medical"></i><span>Kelola Produk</span></a>
             </li>
-            <li class="">
+            <li>
                 <a href="/kasir/#/transaction"><i class="uil uil-transaction"></i><span>Transaksi</span></a>
             </li>
-            <li class="">
+            <li>
                 <a href="/kasir/#/report"><i class="uil uil-file-graph"></i><span>Laporan</span></a>
             </li>
-            <li class="">
+            <li>
                 <a href="/kasir/#/transaction-history"><i class="uil uil-history"></i><span>Riwayat Transaksi</span></a>
             </li>
         </ul>

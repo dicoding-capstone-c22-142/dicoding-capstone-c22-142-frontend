@@ -1,11 +1,11 @@
 const Transaction = {
   async render() {
-    return '<div class="wrapper"></div>';
+    return '';
   },
 
   async afterRender() {
-    const wrapper = document.querySelector('.wrapper');
-    wrapper.innerHTML = `
+    const mainContent = document.querySelector('.main-content');
+    mainContent.innerHTML = `
         <div class="text">Transaction</div>
       `;
   },

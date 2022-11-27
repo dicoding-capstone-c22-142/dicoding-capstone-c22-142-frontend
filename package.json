@@ -41,6 +41,8 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "bootstrap": "^5.2.2"
+    "axios": "^1.2.0",
+    "bootstrap": "^5.2.2",
+    "nanoid": "^4.0.0"
   }
 }
