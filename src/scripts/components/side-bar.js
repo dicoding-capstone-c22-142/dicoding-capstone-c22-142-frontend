@@ -10,7 +10,7 @@ class SideBar extends HTMLElement {
             <h3><img src="img/logo.png" class="img-fluid" /><span>cashtex</span></h3>
         </div>
         <ul class="list-unstyled components">
-            <li class="active">
+            <li>
                 <a href="/kasir/#/dashboard" class="dashboard"><i class="uil uil-home"></i><span>Dashboard</span></a>
             </li>
 

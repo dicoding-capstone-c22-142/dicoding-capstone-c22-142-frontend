@@ -6,6 +6,16 @@ const Dashboard = {
   async afterRender() {
     document.title = 'Dashboard';
     document.querySelector('.navbar-brand').innerHTML = 'Dashboard';
+
+    const list = document.querySelectorAll('#sidebar li');
+    const sideBarListActive = document.querySelector('#sidebar li:nth-child(1)');
+    list.forEach((element) => {
+      list.forEach((active) => {
+        active.classList.remove('active');
+      });
+      sideBarListActive.classList.add('active');
+    });
+
     const mainContent = document.querySelector('.main-content');
     mainContent.innerHTML = `
           <div class="row">
