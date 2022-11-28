@@ -19,10 +19,8 @@ const DetailProducts = {
     const url = CashierUrlParser.parseActiveUrlWithoutCombiner();
     const productWrapper = document.querySelector('.product');
 
-    // ========== ON GOING ========= //
-    const product = CashierApiSource.getProductById(url.id);
+    const product = await CashierApiSource.getProductById(url.id);
     productWrapper.innerHTML = createDetailProduct(product);
-    // ============================= //
   },
 };
 

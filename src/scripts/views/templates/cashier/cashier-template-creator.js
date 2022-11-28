@@ -17,23 +17,26 @@ const createProductItemTemplate = (product) => `
 const createDetailProduct = (product) => `
     <div class="row g-3">
         <div class="col-md-12">
+            <img src="${product.product_image}">
+        </div>
+        <div class="col-md-12">
             <label for="formFile" class="form-label">Foto Produk</label>
             <input class="form-control" type="file" id="formFile" accept="image/*" onchange="handleFiles(this.files)">
         </div>
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Nama Produk"">
+            <input type="text" class="form-control" placeholder="Nama Produk" value="${product.product_name}">
         </div>
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Harga Modal">
+            <input type="text" class="form-control" placeholder="Harga Modal" value="${product.capital}">
         </div>
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Tipe">
+            <input type="text" class="form-control" placeholder="Tipe" value="${product.product_type}">
         </div>
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Harga Jual Permeter">
+            <input type="text" class="form-control" placeholder="Harga Jual Permeter" value="${product.product_price}">
         </div>
         <div class="col-md-6 mb-5">
-            <input type="text" class="form-control" placeholder="Jumlah Stok Pergulung">
+            <input type="text" class="form-control" placeholder="Jumlah Stok Pergulung" value="${product.stock}">
         </div>
         <button type="submit" class="btn btn-secondary">Hapus Produk</button>
         <button type="submit" class="btn btn-success">Simpan</button>

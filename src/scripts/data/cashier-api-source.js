@@ -18,10 +18,17 @@ class CashierApiSource {
         'x-api-key': `${CONFIG.API_KEY}`,
       },
     });
-    return response;
+    return response.data;
   }
 
-  static async getProductById(id) {}
+  static async getProductById(id) {
+    const response = await axios.get(API_ENDPOINT.DETAIL(id), {
+      headers: {
+        'x-api-key': `${CONFIG.API_KEY}`,
+      },
+    });
+    return response.data;
+  }
 
   static async detail(id) {
     const response = await fetch(API_ENDPOINT.DETAIL(id));

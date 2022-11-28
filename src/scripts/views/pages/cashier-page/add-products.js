@@ -18,7 +18,7 @@ const AddProducts = {
           <div class="row g-3">
             <div class="col-md-12">
               <label for="formFile" class="form-label">Foto Produk</label>
-              <input class="form-control" type="file" id="formFile" accept="image/*" onchange="handleFiles(this.files)">
+              <input class="form-control" type="file" id="formFile" accept="image/*">
             </div>
             <div class="col-md-6">
               <input type="text" class="form-control" id="product-name" placeholder="Nama Produk">
@@ -39,27 +39,32 @@ const AddProducts = {
           </div>
         </form>
       `;
-    const productImage = document.querySelector('#formFile');
-    const productName = document.querySelector('#product-name');
-    const productModal = document.querySelector('#product-modal');
-    const productType = document.querySelector('#product-type');
-    const productPrice = document.querySelector('#product-price');
-    const productStok = document.querySelector('#product-stock');
-    document.querySelector('#save').addEventListener('click', (event) => {
-      event.preventDefault();
-      const product = {
-        id: nanoid(10),
-        productImage: productImage.value,
-        productName: productName.value,
-        productModal: productModal.value,
-        productType: productType.value,
-        productPrice: productPrice.value,
-        productStok: productStok.value,
-        insertedAt: new Date().toISOString(),
-      };
-      const response = CashierApiSource.addProduct(product);
-      console.log(response);
-    });
+    try {
+      const productImage = document.querySelector('#formFile');
+      const productName = document.querySelector('#product-name');
+      const productModal = document.querySelector('#product-modal');
+      const productType = document.querySelector('#product-type');
+      const productPrice = document.querySelector('#product-price');
+      const productStok = document.querySelector('#product-stock');
+      document.querySelector('#save').addEventListener('click', async (event) => {
+        event.preventDefault();
+        console.log(productImage.value);
+        const product = {
+          id: nanoid(10),
+          productImage: productImage.value,
+          productName: productName.value,
+          productModal: productModal.value,
+          productType: productType.value,
+          productPrice: productPrice.value,
+          productStok: productStok.value,
+          insertedAt: new Date().toISOString(),
+        };
+        const response = await CashierApiSource.addProduct(product);
+        console.log(response);
+      });
+    } catch (error) {
+      console.error(error);
+    }
   },
 };
 
