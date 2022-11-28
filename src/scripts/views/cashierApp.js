@@ -1,33 +1,35 @@
 import cashierRoutes from '../routes/cashier/cashier-routes';
-import UrlParser from '../routes/url-parser';
-import sideBarInitiator from '../utils/sidebar-initiator';
+import CashierUrlParser from '../routes/cashier/url-cashier-parser';
+import SideBarInitiator from '../utils/sideBar-initiator';
 
 class CashierApp {
   constructor({
-    sideBar, toggle, modeSwitch, modeText, content,
+    mainContent, moreButton, bodyOverlay, sideBar, content, sideBarCollapse,
   }) {
+    this._mainContent = mainContent;
+    this._moreButton = moreButton;
+    this._bodyOverlay = bodyOverlay;
     this._sideBar = sideBar;
-    this._toggle = toggle;
-    this._modeSwitch = modeSwitch;
-    this._modeText = modeText;
     this._content = content;
-    this._initialAppShell();
+    this._sideBarCollapse = sideBarCollapse;
+    this._initialCashierShell();
   }
 
-  _initialAppShell() {
-    sideBarInitiator.init({
-      sideBar: this.sideBar,
-      toggle: this._toggle,
-      modeSwitch: this._modeSwitch,
-      modeText: this._wrapper,
+  _initialCashierShell() {
+    SideBarInitiator.init({
+      sideBar: this._sideBar,
+      content: this._content,
+      bodyOverlay: this._bodyOverlay,
+      moreButton: this._moreButton,
+      sideBarCollapse: this._sideBarCollapse,
     });
   }
 
   async renderPage() {
-    const url = UrlParser.parseActiveUrlWithCombiner();
+    const url = CashierUrlParser.parseActiveUrlWithCombiner();
     console.log(url);
     const page = cashierRoutes[url];
-    this._content.innerHTML = await page.render();
+    this._mainContent.innerHTML = await page.render();
     await page.afterRender();
   }
 }

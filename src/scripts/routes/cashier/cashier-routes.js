@@ -5,15 +5,20 @@ import Report from '../../views/pages/cashier-page/report';
 import TransactionHistory from '../../views/pages/cashier-page/transaction-history';
 import Profile from '../../views/pages/cashier-page/profile';
 import NotFoundPage from '../../views/pages/404';
+import AddProducts from '../../views/pages/cashier-page/add-products';
+import DetailProducts from '../../views/pages/cashier-page/detail-products';
 
 const cashierRoutes = {
   '/': Dashboard,
-  '/users/:id/dashboard': Dashboard,
-  '/users/:id/manage': Manage,
-  '/users/:id/transaction': Transaction,
-  '/users/:id/report': Report,
-  '/users/:id/transaction-history': TransactionHistory,
-  '/users/:id/profile': Profile,
+  '/dashboard': Dashboard,
+  '/manage': Manage,
+  '/manage/add': AddProducts,
+  '/manage/product': Manage,
+  '/manage/product/:id': DetailProducts,
+  '/transaction': Transaction,
+  '/report': Report,
+  '/transaction-history': TransactionHistory,
+  '/profile': Profile,
   '/404': NotFoundPage,
 };
 
