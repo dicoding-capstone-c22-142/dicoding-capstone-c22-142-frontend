@@ -10,7 +10,7 @@ class SideBar extends HTMLElement {
             <h3><img src="img/logo.png" class="img-fluid" /><span>cashtex</span></h3>
         </div>
         <ul class="list-unstyled components">
-            <li class="active">
+            <li>
                 <a href="/kasir/#/dashboard" class="dashboard"><i class="uil uil-home"></i><span>Dashboard</span></a>
             </li>
 
@@ -24,16 +24,16 @@ class SideBar extends HTMLElement {
                 </li>
             </div>
 
-            <li class="">
+            <li>
                 <a href="/kasir/#/manage"><i class="uil uil-book-medical"></i><span>Kelola Produk</span></a>
             </li>
-            <li class="">
+            <li>
                 <a href="/kasir/#/transaction"><i class="uil uil-transaction"></i><span>Transaksi</span></a>
             </li>
-            <li class="">
+            <li>
                 <a href="/kasir/#/report"><i class="uil uil-file-graph"></i><span>Laporan</span></a>
             </li>
-            <li class="">
+            <li>
                 <a href="/kasir/#/transaction-history"><i class="uil uil-history"></i><span>Riwayat Transaksi</span></a>
             </li>
         </ul>

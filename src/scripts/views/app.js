@@ -1,7 +1,6 @@
 import appBarInitiator from '../utils/appBar-initiator';
 import UrlParser from '../routes/url-parser';
 import routes from '../routes/landing-page/routes';
-import Users from '../data/users';
 
 class App {
   constructor({
