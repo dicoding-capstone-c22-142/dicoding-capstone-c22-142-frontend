@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
 import CashierApiSource from '../../../data/cashier-api-source';
+import sideBarActive from '../../../utils/sideBar-active';
 
 const AddProducts = {
   async render() {
@@ -9,6 +10,10 @@ const AddProducts = {
   async afterRender() {
     document.title = 'Manage';
     document.querySelector('.navbar-brand').innerHTML = 'Kelola Produk';
+
+    const sideBarListActive = document.querySelector('#sidebar li:nth-child(3)');
+    sideBarActive(sideBarListActive);
+
     const mainContent = document.querySelector('.main-content');
     mainContent.innerHTML = `
         <div class="arrow-back">
@@ -18,48 +23,59 @@ const AddProducts = {
           <div class="row g-3">
             <div class="col-md-12">
               <label for="formFile" class="form-label">Foto Produk</label>
-              <input class="form-control" type="file" id="formFile" accept="image/*" onchange="handleFiles(this.files)">
+              <input class="form-control" type="file" id="formFile" accept="image/*">
             </div>
             <div class="col-md-6">
-              <input type="text" class="form-control" id="product-name" placeholder="Nama Produk">
-            </div>
-            <div class="col-md-6">
-              <input type="text" class="form-control" id="product-modal" placeholder="Harga Modal">
+              <input type="text" class="form-control" id="product-name" placeholder="Merk">
             </div>
             <div class="col-md-6">
               <input type="text" class="form-control" id="product-type" placeholder="Tipe">
             </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="product-stock" placeholder="Jumlah Stok Gulungan">
+              </div>
             <div class="col-md-6">
+              <input type="text" class="form-control" id="product-length" placeholder="Panjang Kain (m)">
+              </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control" id="product-modal" placeholder="Harga Beli Pergulung">
+            </div>
+            <div class="col-md-6 mb-3">
               <input type="text" class="form-control" id="product-price" placeholder="Harga Jual Permeter">
             </div>
-            <div class="col-md-6 mb-5">
-              <input type="text" class="form-control" id="product-stock" placeholder="Jumlah Stok Pergulung">
-            </div>
-            <button type="submit" id="save" class="btn btn-primary">Simpan</button>
+            <button type="submit" id="add" class="btn btn-primary">Simpan</button>
           </div>
         </form>
       `;
-    const productImage = document.querySelector('#formFile');
-    const productName = document.querySelector('#product-name');
-    const productModal = document.querySelector('#product-modal');
-    const productType = document.querySelector('#product-type');
-    const productPrice = document.querySelector('#product-price');
-    const productStok = document.querySelector('#product-stock');
-    document.querySelector('#save').addEventListener('click', (event) => {
-      event.preventDefault();
-      const product = {
-        id: nanoid(10),
-        productImage: productImage.value,
-        productName: productName.value,
-        productModal: productModal.value,
-        productType: productType.value,
-        productPrice: productPrice.value,
-        productStok: productStok.value,
-        insertedAt: new Date().toISOString(),
-      };
-      const response = CashierApiSource.addProduct(product);
-      console.log(response);
-    });
+    try {
+      const productImage = document.querySelector('#formFile');
+      const productName = document.querySelector('#product-name');
+      const productModal = document.querySelector('#product-modal');
+      const productType = document.querySelector('#product-type');
+      const productPrice = document.querySelector('#product-price');
+      const productStok = document.querySelector('#product-stock');
+      const productLength = document.querySelector('#product-length');
+      document.querySelector('#add').addEventListener('click', async (event) => {
+        event.preventDefault();
+        console.log(productImage.value);
+        const product = {
+          product_image: productImage.value,
+          product_name: productName.value,
+          product_price: productPrice.value,
+          product_type: productType.value,
+          visibilty: true,
+          stock: productStok.value,
+          capital: productModal.value,
+          product_length: productLength.value,
+          product_id: nanoid(10),
+          insertedAt: new Date().toISOString(),
+        };
+        const response = await CashierApiSource.addProduct(product);
+        console.log(response);
+      });
+    } catch (error) {
+      console.error(error);
+    }
   },
 };
 
