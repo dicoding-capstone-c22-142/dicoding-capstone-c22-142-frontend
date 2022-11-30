@@ -13,6 +13,7 @@ class CashierApiSource {
   }
 
   static async addProduct(product) {
+    if (product.stock <= 0) product.visibility = false;
     const response = await axios.post(API_ENDPOINT.PRODUCT, product, {
       headers: {
         'x-api-key': `${CONFIG.API_KEY}`,
@@ -30,10 +31,12 @@ class CashierApiSource {
     return response.data;
   }
 
-  static async detail(id) {
-    const response = await fetch(API_ENDPOINT.DETAIL(id));
-    const responseJson = await response.json();
-    return responseJson.restaurant;
+  static async updateProduct(product) {
+    const response = await axios.put(API_ENDPOINT.PRODUCT, product, {
+      headers: {
+        'x-api-key': CONFIG.API_KEY,
+      },
+    });
   }
 
   static async searchRestaurant(query) {
