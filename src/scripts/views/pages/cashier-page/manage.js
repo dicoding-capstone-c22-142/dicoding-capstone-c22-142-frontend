@@ -1,4 +1,5 @@
 import CashierApiSource from '../../../data/cashier-api-source';
+import sideBarActive from '../../../utils/sideBar-active';
 import { createProductItemTemplate } from '../../templates/cashier/cashier-template-creator';
 
 const Manage = {
@@ -23,19 +24,13 @@ const Manage = {
     document.title = 'Manage';
     document.querySelector('.navbar-brand').innerHTML = 'Kelola Produk';
 
-    const list = document.querySelectorAll('#sidebar li');
     const sideBarListActive = document.querySelector('#sidebar li:nth-child(3)');
-    list.forEach((element) => {
-      list.forEach((active) => {
-        active.classList.remove('active');
-      });
-      sideBarListActive.classList.add('active');
-    });
+    sideBarActive(sideBarListActive);
 
     const productList = document.querySelector('.product-list');
     const products = await CashierApiSource.getAllProducts();
     products.forEach((product) => {
-      productList.innerHTML += createProductItemTemplate(product);
+      productList.innerHTML += createProductItemTemplate(product, 'manage');
     });
   },
 };
