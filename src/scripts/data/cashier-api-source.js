@@ -39,6 +39,14 @@ class CashierApiSource {
     });
   }
 
+  static async productPurchases(product) {
+    const response = await axios.put(API_ENDPOINT.product, product, {
+      headers: {
+        'x-api-key': CONFIG.API_KEY,
+      },
+    });
+  }
+
   static async searchRestaurant(query) {
     const response = await fetch(API_ENDPOINT.SEARCH(query));
     const responseJson = await response.json();

@@ -1,9 +1,10 @@
 import { Modal } from 'bootstrap';
 import rupiahFormat from 'rupiah-format';
+import CashierApiSource from '../../../data/cashier-api-source';
 
 let modalWrap = null;
 
-const showModalPaySuccess = (price, received) => {
+const showModalPaySuccess = (price, received, employee) => {
   if (modalWrap !== null) {
     modalWrap.remove();
   }
@@ -31,19 +32,25 @@ const showModalPaySuccess = (price, received) => {
                         <p class="fs-6">Total Tagihan</p>
                     </div>
                     <div class="col-6">
-                        <p class="fs-6 fw-bold text-end">Rp ${price}</p>
+                        <p class="fs-6 fw-bold text-end">${rupiahFormat.convert(price)}</p>
                     </div>
                     <div class="col-6">
                         <p class="fs-6">Diterima</p>
                     </div>
                     <div class="col-6">
-                        <p class="fs-6 fw-bold text-end">Rp ${received}</p>
+                        <p class="fs-6 fw-bold text-end">${rupiahFormat.convert(received)}</p>
                     </div>
                     <div class="col-6">
                         <p class="fs-6">Kembalian</p>
                     </div>
                     <div class="col-6">
-                        <p class="fs-6 fw-bold text-end">Rp ${received - price}</p>
+                        <p class="fs-6 fw-bold text-end">${rupiahFormat.convert(received - price)}</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="fs-6">Nama Karyawan</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="fs-6 fw-bold text-end">${employee}</p>
                     </div>
                     <div class="col-6 mt-5">
                         <button type="button" class="btn btn-light w-100">Cetak Struk</button>
@@ -80,8 +87,12 @@ const showModal = (price, restOfProduct) => {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" autocomplete="off" id="employee" >
+                <label for="employee">Karyawan yang mengurus</input>
+            </div>
             <div class="form-floating">
-                <input type="number" class="form-control" autofocus id="received" style="height: 200px; text-align: center; font-size: 4em">
+                <input type="number" class="form-control" id="received" style="height: 200px; text-align: center; font-size: 4em">
                 <label for="received">Uang Yang Diterima</label>
             </div>
             <button type="button" disabled id="pay" class="btn btn-success mt-5 w-100">Bayar</button>
@@ -93,6 +104,7 @@ const showModal = (price, restOfProduct) => {
 
   const received = modalWrap.querySelector('#received');
   const pay = modalWrap.querySelector('#pay');
+  const employee = modalWrap.querySelector('#employee');
   document.body.append(modalWrap);
   const modal = new Modal(modalWrap.querySelector('.modal'));
   modal.show();
@@ -106,7 +118,9 @@ const showModal = (price, restOfProduct) => {
   });
   pay.addEventListener('click', (event) => {
     modal.hide();
-    showModalPaySuccess(price, received.value);
+    showModalPaySuccess(price, received.value, employee.value);
+    // on going
+    // CashierApiSource.productPurchases();
     event.preventDefault();
   });
 };
@@ -188,9 +202,55 @@ const createAddTransactionTemplate = (product) => `
     </div>
 `;
 
+const createReport = () => `
+    <div class="col-md-12">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="text-primary">
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Barang</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Tagihan</th>
+                    <th>Karyawan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>26/07/2022</td>
+                    <td>Kain</td>
+                    <td>Rp 25.000,00</td>
+                    <td>2 meter</td>
+                    <td>Rp 50.000,00</td>
+                    <td>Reza</td>
+                </tr>
+                <tr>
+                    <td>26/07/2022</td>
+                    <td>Kain</td>
+                    <td>Rp 25.000,00</td>
+                    <td>2 meter</td>
+                    <td>Rp 50.000,00</td>
+                    <td>Reza</td>
+                </tr>
+                <tr>
+                    <td>26/07/2022</td>
+                    <td>Kain</td>
+                    <td>Rp 25.000,00</td>
+                    <td>2 meter</td>
+                    <td>Rp 50.000,00</td>
+                    <td>Reza</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+`;
+
 export {
   createProductItemTemplate,
   createDetailProduct,
   createAddTransactionTemplate,
+  createReport,
   showModal,
 };
