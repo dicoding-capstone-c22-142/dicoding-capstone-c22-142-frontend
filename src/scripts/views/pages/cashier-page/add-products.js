@@ -23,7 +23,7 @@ const AddProducts = {
           <div class="row g-3">
             <div class="col-md-12">
               <label for="formFile" class="form-label">Foto Produk</label>
-              <input class="form-control" type="file" id="formFile" accept="image/*">
+              <input class="form-control" type="file" id="formFile">
             </div>
             <div class="col-md-6">
               <input type="text" class="form-control" id="product-name" placeholder="Merk">

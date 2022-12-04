@@ -1,4 +1,4 @@
-import {createAboutPage } from '../../templates/template-creator';
+import { createAboutPage } from '../../templates/template-creator';
 
 const Home = {
   async render() {
@@ -11,7 +11,7 @@ const Home = {
 
   async afterRender() {
     const content = document.querySelector('.content');
-    const contentAbout = document.querySelector('.contentAbout')
+    const contentAbout = document.querySelector('.contentAbout');
     // content.innerHTML = createLandingPage();
     contentAbout.innerHTML = createAboutPage();
   },

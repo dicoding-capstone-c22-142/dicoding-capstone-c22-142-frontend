@@ -182,13 +182,13 @@ const createAddTransactionTemplate = (product) => `
         </div>
         <div class="col-md-6">
             <div class="form-floating">
-                <input type="text" readonly class="form-control" id="price" data-price-product="25000" value="${rupiahFormat.convert(25000)}">
+                <input type="text"  class="form-control" id="price" data-price-product="25000" value="${rupiahFormat.convert(25000)}">
                 <label for="floatingEmptyPlaintextInput">Harga Permeter</label>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating">
-                <input type="text" readonly class="form-control" id="restOfProduct" value="250 meter">
+                <input type="text"  class="form-control" id="restOfProduct" value="250 meter">
                 <label for="floatingEmptyPlaintextInput">Panjang Kain Tersisa</label>
             </div>
         </div>
@@ -247,10 +247,74 @@ const createReport = () => `
     </div>
 `;
 
+const createProfileTemplate = () => `
+    <div class="img-profile mb-3">
+        <img src="/icons/profile.jpg" width="200" height="200">
+    </div>
+    <div class="col-12 mb-3">
+        <div class="form-floating mb-3">
+            <input type="text"  class="form-control" id="name" value="MulyaTex Sigli">
+            <label for="name">Nama Owner</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text"  class="form-control" id="username" value="Mursalin">
+            <label for="username">Nama Usaha</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email"  class="form-control" id="email" placeholder="name@example.com" value="name@example.com">
+            <label for="email">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text"  class="form-control" id="phone" value="081292008576">
+            <label for="phone">No. Telepon</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text"  class="form-control" id="city" value="Sigli">
+            <label for="city">Kota</label>
+        </div>
+    </div>
+    <div class="col-12 mb-5">
+        <button class="btn btn-primary logout">Logout</button>
+    </div>
+`;
+
+const createSettingsTemplate = () => `
+    <div class="img-profile mb-3">
+        <img src="/icons/profile.jpg" width="200" height="200">
+    </div>
+    <div class="col-12 mb-3">
+        <div class="form-floating mb-3">
+            <input type="text"  class="form-control" id="name" value="MulyaTex Sigli">
+            <label for="name">Nama Owner</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text"  class="form-control" id="username" value="Mursalin">
+            <label for="username">Nama Usaha</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email"  class="form-control" id="email" placeholder="name@example.com" value="name@example.com">
+            <label for="email">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text"  class="form-control" id="phone" value="081292008576">
+            <label for="phone">No. Telepon</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text"  class="form-control" id="city" value="Sigli">
+            <label for="city">Kota</label>
+        </div>
+    </div>
+    <div class="col-12 mb-5">
+        <button class="btn btn-success update">Simpan</button>
+    </div>
+`;
+
 export {
   createProductItemTemplate,
   createDetailProduct,
   createAddTransactionTemplate,
   createReport,
   showModal,
+  createProfileTemplate,
+  createSettingsTemplate,
 };
