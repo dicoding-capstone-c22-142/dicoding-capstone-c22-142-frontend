@@ -13,20 +13,38 @@ class CashierApiSource {
   }
 
   static async addProduct(product) {
+    if (product.stock <= 0) product.visibility = false;
     const response = await axios.post(API_ENDPOINT.PRODUCT, product, {
       headers: {
         'x-api-key': `${CONFIG.API_KEY}`,
       },
     });
-    return response;
+    return response.data;
   }
 
-  static async getProductById(id) {}
+  static async getProductById(id) {
+    const response = await axios.get(API_ENDPOINT.DETAIL(id), {
+      headers: {
+        'x-api-key': `${CONFIG.API_KEY}`,
+      },
+    });
+    return response.data;
+  }
 
-  static async detail(id) {
-    const response = await fetch(API_ENDPOINT.DETAIL(id));
-    const responseJson = await response.json();
-    return responseJson.restaurant;
+  static async updateProduct(product) {
+    const response = await axios.put(API_ENDPOINT.PRODUCT, product, {
+      headers: {
+        'x-api-key': CONFIG.API_KEY,
+      },
+    });
+  }
+
+  static async productPurchases(product) {
+    const response = await axios.put(API_ENDPOINT.product, product, {
+      headers: {
+        'x-api-key': CONFIG.API_KEY,
+      },
+    });
   }
 
   static async searchRestaurant(query) {

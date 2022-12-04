@@ -23,12 +23,12 @@ class MainBar extends HTMLElement {
                     id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/kasir/#/profile">
                             <i class="uil uil-user"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/kasir/#/settings">
                             <i class="uil uil-setting"></i>
                             </a>
                         </li>

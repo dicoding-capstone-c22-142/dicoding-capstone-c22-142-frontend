@@ -1,0 +1,23 @@
+.profile-wrapper {
+    padding: 20px;
+    margin: auto;
+    max-width: 560px;
+
+    .img-profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        border: 1px solid #aaa;
+        margin: auto;
+        img {
+            border-radius: 50%;
+        }
+    }
+
+    .logout {
+        width: 100%;
+    }
+}

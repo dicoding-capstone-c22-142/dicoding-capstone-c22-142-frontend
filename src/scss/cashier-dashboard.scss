@@ -1,5 +1,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "./cashier-product.scss";
+@import "./cashier-report.scss";
+@import "./cashier-profile.scss";
+@import "./cashier-settings.scss";
 
 body, html {
 	line-height: 1.8;
@@ -163,7 +166,7 @@ a:focus {
 
 
 .main-content{
-	padding:10px 20px 0px 20px;
+	padding:10px 20px 10px 20px;
 	position: relative;
     width: 100%;
 }

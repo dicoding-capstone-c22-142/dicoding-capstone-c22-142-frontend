@@ -1,16 +1,19 @@
-import { createLandingPage } from '../../templates/template-creator';
+import { createAboutPage } from '../../templates/template-creator';
 
 const Home = {
   async render() {
     return `
         <header-bar></header-bar>
-        <div class="content"></div>
+        
+        <div class="contentAbout"></div>
     `;
   },
 
   async afterRender() {
     const content = document.querySelector('.content');
-    content.innerHTML = createLandingPage();
+    const contentAbout = document.querySelector('.contentAbout');
+    // content.innerHTML = createLandingPage();
+    contentAbout.innerHTML = createAboutPage();
   },
 };
 
