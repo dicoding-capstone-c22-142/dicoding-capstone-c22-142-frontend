@@ -2,12 +2,13 @@ import Dashboard from '../../views/pages/cashier-page/dashboard';
 import Manage from '../../views/pages/cashier-page/manage';
 import Transaction from '../../views/pages/cashier-page/transaction';
 import Report from '../../views/pages/cashier-page/report';
-import TransactionHistory from '../../views/pages/cashier-page/transaction-history';
 import Profile from '../../views/pages/cashier-page/profile';
 import NotFoundPage from '../../views/pages/404';
 import AddProducts from '../../views/pages/cashier-page/add-products';
 import DetailProducts from '../../views/pages/cashier-page/detail-products';
 import AddTransaction from '../../views/pages/cashier-page/add-transaction';
+import Settings from '../../views/pages/cashier-page/settings';
+import detailReport from '../../views/pages/cashier-page/detail-report';
 
 const cashierRoutes = {
   '/': Dashboard,
@@ -20,8 +21,10 @@ const cashierRoutes = {
   '/transaction/product': Transaction,
   '/transaction/product/:id': AddTransaction,
   '/report': Report,
-  '/transaction-history': TransactionHistory,
+  '/report/transaction': Report,
+  '/report/transaction/:id': detailReport,
   '/profile': Profile,
+  '/settings': Settings,
   '/404': NotFoundPage,
 };
 

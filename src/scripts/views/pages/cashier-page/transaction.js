@@ -1,4 +1,5 @@
 import CashierApiSource from '../../../data/cashier-api-source';
+import Search from '../../../utils/Search';
 import sideBarActive from '../../../utils/sideBar-active';
 import { createProductItemTemplate } from '../../templates/cashier/cashier-template-creator';
 
@@ -8,7 +9,7 @@ const Transaction = {
     <div class="row mb-3">
       <div class="col">
         <div class="input-group ">
-          <input type="search" class="form-control rounded" placeholder="Cari barang atau kode" aria-label="Search" aria-describedby="search-addon" />
+          <input type="search" class="form-control rounded" id="search-product" placeholder="Cari barang atau kode" aria-label="Search" aria-describedby="search-addon" />
           <button type="button" class="btn btn-outline-primary">search</button>
         </div>
       </div>
@@ -20,14 +21,21 @@ const Transaction = {
   async afterRender() {
     document.title = 'Transaksi';
     document.querySelector('.navbar-brand').innerHTML = 'Transaksi';
-
     const sideBarListActive = document.querySelector('#sidebar li:nth-child(4)');
     sideBarActive(sideBarListActive);
 
     const productList = document.querySelector('.product-list');
     const products = await CashierApiSource.getAllProducts();
+    const searchElement = document.querySelector('#search-product');
+
     products.forEach((product) => {
       productList.innerHTML += createProductItemTemplate(product, 'transaction');
+    });
+
+    searchElement.addEventListener('keypress', async (event) => {
+      if (event.key === 'Enter') {
+        Search.products(searchElement.value.trim());
+      }
     });
   },
 };

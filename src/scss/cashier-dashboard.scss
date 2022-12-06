@@ -1,5 +1,9 @@
 @import "bootstrap/scss/bootstrap";
 @import "./cashier-product.scss";
+@import "./cashier-report.scss";
+@import "./cashier-profile.scss";
+@import "./cashier-settings.scss";
+@import "./cashier-transaction.scss";
 
 body, html {
 	line-height: 1.8;
@@ -16,6 +20,11 @@ body, html {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
     font-weight: 400;
     line-height: 1.5em;
+}
+
+td {
+    height: 44px;
+    line-height: 44px;
 }
 
 p {
@@ -163,7 +172,7 @@ a:focus {
 
 
 .main-content{
-	padding:10px 20px 0px 20px;
+	padding:10px 20px 10px 20px;
 	position: relative;
     width: 100%;
 }

@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import CashierApiSource from '../../../data/cashier-api-source';
 import sideBarActive from '../../../utils/sideBar-active';
+import { createAddProductTemplate } from '../../templates/cashier/cashier-template-creator';
 
 const AddProducts = {
   async render() {
@@ -15,38 +16,7 @@ const AddProducts = {
     sideBarActive(sideBarListActive);
 
     const mainContent = document.querySelector('.main-content');
-    mainContent.innerHTML = `
-        <div class="arrow-back">
-          <a href="/kasir/#/manage"<i class="uil uil-arrow-left"></i></a>
-        </div>
-        <form class="product">
-          <div class="row g-3">
-            <div class="col-md-12">
-              <label for="formFile" class="form-label">Foto Produk</label>
-              <input class="form-control" type="file" id="formFile" accept="image/*">
-            </div>
-            <div class="col-md-6">
-              <input type="text" class="form-control" id="product-name" placeholder="Merk">
-            </div>
-            <div class="col-md-6">
-              <input type="text" class="form-control" id="product-type" placeholder="Tipe">
-            </div>
-              <div class="col-md-6">
-                <input type="text" class="form-control" id="product-stock" placeholder="Jumlah Stok Gulungan">
-              </div>
-            <div class="col-md-6">
-              <input type="text" class="form-control" id="product-length" placeholder="Panjang Kain (m)">
-              </div>
-            <div class="col-md-6">
-              <input type="text" class="form-control" id="product-modal" placeholder="Harga Beli Pergulung">
-            </div>
-            <div class="col-md-6 mb-3">
-              <input type="text" class="form-control" id="product-price" placeholder="Harga Jual Permeter">
-            </div>
-            <button type="submit" id="add" class="btn btn-primary">Simpan</button>
-          </div>
-        </form>
-      `;
+    mainContent.innerHTML = createAddProductTemplate();
     try {
       const productImage = document.querySelector('#formFile');
       const productName = document.querySelector('#product-name');
@@ -55,12 +25,27 @@ const AddProducts = {
       const productPrice = document.querySelector('#product-price');
       const productStok = document.querySelector('#product-stock');
       const productLength = document.querySelector('#product-length');
+      let uploadImage = '';
+
+      // preview image
+      productImage.addEventListener('change', (e) => {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+          uploadImage = reader.result;
+          const img = document.createElement('img');
+          const imageContainer = document.querySelector('#display_image');
+          img.setAttribute('src', uploadImage);
+          imageContainer.appendChild(img);
+        });
+        reader.readAsDataURL(e.target.files[0]);
+      });
+
       document.querySelector('#add').addEventListener('click', async (event) => {
         event.preventDefault();
         console.log(productImage.value);
         const product = {
-          product_image: productImage.value,
           product_name: productName.value,
+          product_image: productImage.value,
           product_price: productPrice.value,
           product_type: productType.value,
           visibilty: true,
