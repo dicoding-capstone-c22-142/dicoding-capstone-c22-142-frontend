@@ -8,6 +8,7 @@ import AddProducts from '../../views/pages/cashier-page/add-products';
 import DetailProducts from '../../views/pages/cashier-page/detail-products';
 import AddTransaction from '../../views/pages/cashier-page/add-transaction';
 import Settings from '../../views/pages/cashier-page/settings';
+import detailReport from '../../views/pages/cashier-page/detail-report';
 
 const cashierRoutes = {
   '/': Dashboard,
@@ -20,6 +21,8 @@ const cashierRoutes = {
   '/transaction/product': Transaction,
   '/transaction/product/:id': AddTransaction,
   '/report': Report,
+  '/report/transaction': Report,
+  '/report/transaction/:id': detailReport,
   '/profile': Profile,
   '/settings': Settings,
   '/404': NotFoundPage,

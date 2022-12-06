@@ -21,17 +21,17 @@ const Transaction = {
   async afterRender() {
     document.title = 'Transaksi';
     document.querySelector('.navbar-brand').innerHTML = 'Transaksi';
-
     const sideBarListActive = document.querySelector('#sidebar li:nth-child(4)');
     sideBarActive(sideBarListActive);
 
     const productList = document.querySelector('.product-list');
     const products = await CashierApiSource.getAllProducts();
+    const searchElement = document.querySelector('#search-product');
+
     products.forEach((product) => {
       productList.innerHTML += createProductItemTemplate(product, 'transaction');
     });
 
-    const searchElement = document.querySelector('#search-product');
     searchElement.addEventListener('keypress', async (event) => {
       if (event.key === 'Enter') {
         Search.products(searchElement.value.trim());

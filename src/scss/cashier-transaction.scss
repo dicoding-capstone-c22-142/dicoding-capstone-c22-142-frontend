@@ -1,0 +1,14 @@
+.transaction-wrapper {
+    background-color: white;
+    flex-direction: column;
+    overflow: auto;
+
+    img {
+        margin: auto;
+        border-radius: 5px;
+    }
+
+    .row {
+        margin: 0;
+    }
+}

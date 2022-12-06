@@ -10,7 +10,7 @@ const AddTransaction = {
     <div class="arrow-back">
         <a href="/kasir/#/transaction"<i class="uil uil-arrow-left"></i></a>
     </div>
-    <form class="product"></form>
+    <form class="transaction-wrapper"></form>
     `;
   },
 
@@ -20,24 +20,31 @@ const AddTransaction = {
 
     sideBarActive(document.querySelector('#sidebar li:nth-child(4)'));
 
-    const productWrapper = document.querySelector('.product');
+    const productWrapper = document.querySelector('.transaction-wrapper');
     const url = CashierUrlParser.parseActiveUrlWithoutCombiner();
     const product = await CashierApiSource.getProductById(url.id);
     productWrapper.innerHTML = await createAddTransactionTemplate(product);
 
     const addButton = document.querySelector('#add');
-    const lengthOfProduct = document.querySelector('#lengthOfProduct');
+    let lengthOfProduct = document.querySelector('#lengthOfProduct');
     let price = document.querySelector('#price');
     let restOfProduct = document.querySelector('#restOfProduct');
     let total;
+
     restOfProduct = restOfProduct.value.split(' ');
     price = price.getAttribute('data-price-product');
+
     addButton.addEventListener('click', (event) => {
       event.preventDefault();
       if (lengthOfProduct.value !== '') {
         if (parseInt(lengthOfProduct.value, 10) <= parseInt(restOfProduct[0], 10)) {
+          const productName = product.product_name;
+          const productType = product.product_type;
           total = price * lengthOfProduct.value;
-          showModal(total, restOfProduct[0]);
+          lengthOfProduct = lengthOfProduct.value;
+          showModal({
+            total, lengthOfProduct, productName, price, productType,
+          });
         }
       }
     });

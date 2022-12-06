@@ -1,5 +1,6 @@
 import CashierApiSource from '../../../data/cashier-api-source';
 import CashierUrlParser from '../../../routes/cashier/url-cashier-parser';
+import sideBarActive from '../../../utils/sideBar-active';
 import { createDetailProduct } from '../../templates/cashier/cashier-template-creator';
 
 const DetailProducts = {
@@ -15,9 +16,9 @@ const DetailProducts = {
   async afterRender() {
     document.title = 'Detail Produk';
     document.querySelector('.navbar-brand').innerHTML = 'Kelola Produk';
-
-    const url = CashierUrlParser.parseActiveUrlWithoutCombiner();
+    sideBarActive(document.querySelector('#sidebar li:nth-child(3)'));
     const productWrapper = document.querySelector('.product');
+    const url = CashierUrlParser.parseActiveUrlWithoutCombiner();
     const data = await CashierApiSource.getProductById(url.id);
     productWrapper.innerHTML = await createDetailProduct(data);
 
@@ -30,6 +31,20 @@ const DetailProducts = {
     const productPrice = document.querySelector('#product-price');
     const productStok = document.querySelector('#product-stock');
     const insertedAt = document.querySelector('#insertedAt');
+    let uploadImage = '';
+
+    // preview image
+    console.log(productImage);
+    productImage.addEventListener('change', (e) => {
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        uploadImage = reader.result;
+        const imageContainer = document.querySelector('#display-image');
+        imageContainer.innerHTML = `<img src="${uploadImage}">`;
+      });
+      reader.readAsDataURL(e.target.files[0]);
+    });
+
     document.querySelector('#update').addEventListener('click', async (event) => {
       event.preventDefault();
       const product = {
@@ -46,16 +61,17 @@ const DetailProducts = {
       const response = await CashierApiSource.updateProduct(url.id, product);
       if (response.status === 'success') {
         alert(response.message);
-        window.location = 'http://localhost:22142/kasir/#/manage/product';
+        window.location = '/kasir/#/manage/product';
       }
     });
+
     document.querySelector('#delete').addEventListener('click', async (event) => {
       event.preventDefault();
       if (confirm('Apakah anda ingin menghapus?') === true) {
         const response = await CashierApiSource.deleteProduct(url.id);
         if (response.status === 'success') {
           alert(response.message);
-          window.location = 'http://localhost:22142/kasir/#/manage/product';
+          window.location = '/kasir/#/manage/product';
         }
       }
     });

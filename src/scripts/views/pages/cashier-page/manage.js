@@ -24,16 +24,16 @@ const Manage = {
   async afterRender() {
     document.title = 'Manage';
     document.querySelector('.navbar-brand').innerHTML = 'Kelola Produk';
-
-    const sideBarListActive = document.querySelector('#sidebar li:nth-child(3)');
-    sideBarActive(sideBarListActive);
+    sideBarActive(document.querySelector('#sidebar li:nth-child(3)'));
 
     const productList = document.querySelector('.product-list');
     const products = await CashierApiSource.getAllProducts();
+    const searchElement = document.querySelector('#search-product');
+
     products.forEach((product) => {
       productList.innerHTML += createProductItemTemplate(product, 'manage');
     });
-    const searchElement = document.querySelector('#search-product');
+
     searchElement.addEventListener('keypress', async (event) => {
       if (event.key === 'Enter') {
         Search.products(searchElement.value);
