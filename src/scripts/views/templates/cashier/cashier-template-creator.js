@@ -131,11 +131,11 @@ const createProductItemTemplate = (product, menu) => `
             <img src="${product.product_image}" alt="Ka">
             <div class="name-price w-100">
                 <p class="name">${product.product_name}</p>
-                <p class="price">Rp ${product.product_price}</p>
+                <p class="price">Rp ${product.capital}</p>
             </div>
             <div class="stok text-center ps-2 pe-2">
                 <p>Stok</p>
-                <p>${product.stock}</p>
+                <p>${product.current_stock}</p>
             </div>
         </div>
     </a>
@@ -144,7 +144,7 @@ const createProductItemTemplate = (product, menu) => `
 const createDetailProduct = (product) => `
     <div class="row g-3">
         <div class="col-md-12">
-            <img src="${product.product_image}">
+            <img src="${product.product_image}" id="formFile">
         </div>
         <input value="${product.product_id}" hidden id="product-id">
         <input value="${product.insertedAt}" hidden id="insertedAt">
@@ -153,19 +153,22 @@ const createDetailProduct = (product) => `
             <input class="form-control" type="file" id="formFile" accept="image/*" onchange="handleFiles(this.files)">
         </div>
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Nama Produk" value="${product.product_name}">
+            <input type="text" class="form-control" id="product-name" placeholder="Nama Kain" value="${product.product_name}">
         </div>
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Harga Modal" value="${product.capital}">
+            <input type="text" class="form-control" id="product-length" placeholder="Panjang Kain" value="${product.product_length}">
         </div>
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Tipe" value="${product.product_type}">
+            <input type="text" class="form-control" id="capital" placeholder="Harga Modal" value="${product.capital}">
         </div>
         <div class="col-md-6">
-            <input type="text" class="form-control" placeholder="Harga Jual Permeter" value="${product.product_price}">
+            <input type="text" class="form-control" id="product-type" placeholder="Tipe" value="${product.product_type}">
+        </div>
+        <div class="col-md-6">
+            <input type="text" class="form-control" id="product-price" placeholder="Harga Jual Permeter" value="${product.product_price}">
         </div>
         <div class="col-md-6 mb-5">
-            <input type="text" class="form-control" placeholder="Jumlah Stok Pergulung" value="${product.stock}">
+            <input type="text" class="form-control" id="product-stock" placeholder="Jumlah Stok Pergulung" value="${product.current_stock}">
         </div>
         <button type="submit" class="btn btn-secondary" id="delete">Hapus Produk</button>
         <button type="submit" class="btn btn-success" id="update">Simpan</button>
@@ -175,26 +178,26 @@ const createDetailProduct = (product) => `
 const createAddTransactionTemplate = (product) => `
     <div class="row g-3">
         <div class="col-md-12">
-            <img src="https://i.pinimg.com/236x/38/cd/10/38cd1008186f0629345d15c389d52768.jpg" alt="product image">
+            <img src="${product.product_image}" alt="product image">
         </div>
         <div class="col-md-12">
-            <h3 class="text-center">Product Name</h3>
+            <h3 class="text-center">${product.product_name}</h3>
         </div>
         <div class="col-md-6">
             <div class="form-floating">
-                <input type="text"  class="form-control" id="price" data-price-product="25000" value="${rupiahFormat.convert(25000)}">
+                <input type="text"  class="form-control" id="price" data-price-product="${product.product_price}" value="${rupiahFormat.convert(product.product_price)}">
                 <label for="floatingEmptyPlaintextInput">Harga Permeter</label>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating">
-                <input type="text"  class="form-control" id="restOfProduct" value="250 meter">
+                <input type="text"  class="form-control" id="restOfProduct" value="${product.product_length} meter">
                 <label for="floatingEmptyPlaintextInput">Panjang Kain Tersisa</label>
             </div>
         </div>
         <div class="col-md-12">
             <div class="form-floating">
-                <input type="number" class="form-control" required autofocus id="lengthOfProduct" max="250" min="0" style="height: 200px; text-align: center; font-size: 4em">
+                <input type="number" class="form-control" required autofocus id="lengthOfProduct" max="${product.product_length}" min="0" style="height: 200px; text-align: center; font-size: 4em">
                 <label for="floatingEmptyPlaintextInput">Panjang Kain yang dipesan</label>
             </div>
         </div>

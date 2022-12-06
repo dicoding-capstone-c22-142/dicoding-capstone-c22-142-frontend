@@ -22,9 +22,8 @@ const AddTransaction = {
 
     const productWrapper = document.querySelector('.product');
     const url = CashierUrlParser.parseActiveUrlWithoutCombiner();
-    // error CORS
-    // const product = await CashierApiSource.getProductById(url.id);
-    productWrapper.innerHTML = await createAddTransactionTemplate();
+    const product = await CashierApiSource.getProductById(url.id);
+    productWrapper.innerHTML = await createAddTransactionTemplate(product);
 
     const addButton = document.querySelector('#add');
     const lengthOfProduct = document.querySelector('#lengthOfProduct');
