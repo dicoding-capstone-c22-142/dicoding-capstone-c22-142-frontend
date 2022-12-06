@@ -6,7 +6,8 @@
   "scripts": {
     "start-dev": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "serve": "http-server dist"
+    "serve": "http-server dist -p 32142",
+    "production": "npm run build && npm run serve"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.1",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.1",
     "sass": "^1.56.1",
