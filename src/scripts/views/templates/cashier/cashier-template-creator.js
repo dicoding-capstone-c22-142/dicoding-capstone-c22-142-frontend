@@ -157,8 +157,15 @@ const createProductItemTemplate = (product, menu) => `
 
 const createDetailProduct = (product) => `
     <div class="row g-3">
-        <div class="col-md-12" id="display-image">
-            <img src="${product.product_image}">
+        <div class="col-md-12">
+            <div class="card" style="margin: auto; display:block;">
+                <div class="display-image">
+                    <img src="${product.product_image}">
+                </div>
+                <div class="card-body">
+                    <input class="form-control" type="file" accept="image/*" id="formFile" required>
+                </div>
+            </div>
         </div>
         <input value="${product.product_id}" hidden id="product-id">
         <input value="${product.insertedAt}" hidden id="insertedAt">
@@ -210,10 +217,12 @@ const createDetailProduct = (product) => `
 const createAddTransactionTemplate = (product) => `
     <div class="row g-3 mb-5">
     <h3 class="text-center">${product.product_name}</h3>
-        <div class="col-md-6 d-flex">
-            <img src="${product.product_image}" alt="product image">
+        <div class="col-sm-6 d-flex">
+            <div class="display-image">
+                <img src="${product.product_image}" alt="product image">
+            </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
             <div class="row g-3">
                 <div class="col-md-6">
                     <div class="form-floating">
@@ -320,30 +329,33 @@ const createAddProductTemplate = () => `
 </div>
 <form class="product">
   <div class="row g-3">
-    <div class="col-md-12" id="display_image">
-        
-    </div>
     <div class="col-md-12">
-      <label for="formFile" class="form-label">Foto Produk</label>
-      <input class="form-control" type="file" accept="image/*" id="formFile">
+        <div class="card" style="margin: auto; display: block;">
+            <div class="display-image">
+                <img src="../images/no-image.png">
+            </div>
+            <div class="card-body">
+                <input class="form-control" type="file" accept="image/*" id="formFile" required>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="product-name" placeholder="Merk">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="product-name" placeholder="Merk" required>
     </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="product-type" placeholder="Tipe">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="product-type" placeholder="Tipe" required>
     </div>
-      <div class="col-md-6">
-        <input type="text" class="form-control" id="product-stock" placeholder="Jumlah Stok Gulungan">
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="product-stock" placeholder="Jumlah Stok Gulungan" required>
       </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="product-length" placeholder="Panjang Kain (m)">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="product-length" placeholder="Panjang Kain (m)" required>
       </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="product-modal" placeholder="Harga Beli Pergulung">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="product-modal" placeholder="Harga Beli Pergulung" required>
     </div>
-    <div class="col-md-6 mb-3">
-      <input type="text" class="form-control" id="product-price" placeholder="Harga Jual Permeter">
+    <div class="col-sm-6 mb-3">
+      <input type="text" class="form-control" id="product-price" placeholder="Harga Jual Permeter" required>
     </div>
     <button type="submit" id="add" class="btn btn-primary">Simpan</button>
   </div>

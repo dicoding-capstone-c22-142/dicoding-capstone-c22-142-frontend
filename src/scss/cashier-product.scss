@@ -50,19 +50,37 @@ form.product {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
+
+    .display-image {
+        width: 100%;
+        height: 200px;
+        background-color: #eee;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+
     img {
         display: block;
         margin: auto;
-        width: 80%;
+        width: 100%;
+        height: 200px;
         border-radius: 5px;
+    }
+
+    @media only screen and (min-width: 400px) {
+        .card {
+            width: 18rem;
+            margin: auto;
+        }
     }
 }
 
 .product-list {
-    min-height: 78vh;
-    flex-direction: column;
-    overflow: auto;
+    max-height: 78vh;
+    flex-direction: row;
+    overflow: scroll;
+    border-radius: 10px;
 }
 
 .product-items {

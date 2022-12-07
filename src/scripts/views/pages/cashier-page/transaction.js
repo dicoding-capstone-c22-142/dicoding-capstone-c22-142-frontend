@@ -28,7 +28,7 @@ const Transaction = {
     const products = await CashierApiSource.getAllProducts();
     const searchElement = document.querySelector('#search-product');
 
-    products.forEach((product) => {
+    products.filter((product) => product.outstock === false).forEach((product) => {
       productList.innerHTML += createProductItemTemplate(product, 'transaction');
     });
 
