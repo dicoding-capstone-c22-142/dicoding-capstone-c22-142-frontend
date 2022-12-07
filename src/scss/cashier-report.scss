@@ -4,3 +4,34 @@
     flex-direction: column;
     overflow: auto;
 }
+
+.detail-report {
+    background-color: #fff;
+    max-width: 600px;
+    margin: auto;
+
+    .row {
+        margin: 0;
+    }
+
+    hr {
+        border-top: 2px dashed black;
+        margin: 0;
+    }
+
+    table tr td {
+        text-transform: none;
+        line-height: 1em;
+    }
+}
+
+.print {
+    max-width: 600px;
+    margin: auto;
+    
+    button {
+        display: block;
+        width: 200px;
+        margin: 20px auto;
+    }
+}
