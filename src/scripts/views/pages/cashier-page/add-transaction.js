@@ -37,7 +37,7 @@ const AddTransaction = {
     addButton.addEventListener('click', (event) => {
       event.preventDefault();
       if (lengthOfProduct.value !== '') {
-        if (parseInt(lengthOfProduct.value, 10) <= parseInt(restOfProduct[0], 10)) {
+        if (parseFloat(lengthOfProduct.value) <= parseFloat(restOfProduct[0])) {
           const productName = product.product_name;
           const productType = product.product_type;
           total = price * lengthOfProduct.value;

@@ -57,8 +57,9 @@ const AddProducts = {
               product_type: productType.value,
               current_stock: parseInt(productStok.value, 10),
               capital: parseInt(productModal.value, 10),
-              product_length: parseInt(productLength.value, 10),
-              current_length: parseInt(productLength.value, 10) * parseInt(productStok.value, 10),
+              product_length: parseFloat(productLength.value),
+              current_length: (parseFloat(productLength.value) * parseInt(productStok.value, 10))
+                .toFixed(1),
             };
 
             const response = await CashierApiSource.addProduct(product);

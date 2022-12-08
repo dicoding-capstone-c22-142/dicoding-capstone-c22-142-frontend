@@ -12,7 +12,7 @@ const transactionProcess = async ({
     total_bill: total,
     author: employee.value,
     received: received.value,
-    change: parseInt(received.value, 10) - price,
+    change: parseInt(received.value, 10) - total,
     amount: lengthOfProduct,
   };
   await CashierApiSource.productPurchases(transactions);
@@ -27,7 +27,7 @@ const transactionProcess = async ({
     current_stock: data.current_stock,
     capital: data.capital,
     product_length: data.product_length,
-    current_length: data.current_length - lengthOfProduct,
+    current_length: (data.current_length - lengthOfProduct).toFixed(1),
   };
   await CashierApiSource.updateProduct(url.id, product);
 };

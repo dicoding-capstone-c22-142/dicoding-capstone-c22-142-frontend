@@ -62,8 +62,9 @@ const DetailProducts = {
         initital_stock: parseInt(productStok.value, 10),
         current_stock: parseInt(productStok.value, 10),
         capital: parseInt(productModal.value, 10),
-        product_length: parseInt(productLength.value, 10),
-        current_length: parseInt(productLength.value, 10) * parseInt(productStok.value, 10),
+        product_length: parseFloat(productLength.value),
+        current_length: (parseFloat(productLength.value) * parseInt(productStok.value, 10))
+          .toFixed(1),
       };
       if (!productInput.files[0]) {
         product.product_image = productImage.getAttribute('src');
