@@ -140,19 +140,18 @@ const showModal = ({
 };
 
 const createProductItemTemplate = (product, menu) => `
-    <a href='/kasir/#/${menu}/product/${product.product_id}' class="border-bottom">
-        <div class="col-12 d-flex align-items-center product-items">
-            <img src="${product.product_image}" alt="Ka">
-            <div class="name-price w-100">
-                <p class="name">${product.product_name}</p>
-                <p class="price">Rp ${product.capital}</p>
+    <div class="col-6 col-sm-4 col-lg-3">
+        <a href='/kasir/#/${menu}/product/${product.product_id}' class="border-bottom">
+            <div class="card shadow-sm">
+                <img src="${product.product_image}" class="card-img-top" alt="product image">
+                <div class="card-body">
+                    <p class="name card-title fw-semibold col-6">${product.product_name}</p>
+                    <p class="price fw-bold">Rp ${product.capital}</p>
+                    <p class="stock">Stok ${product.current_stock}</p>
+                </div>
             </div>
-            <div class="stok text-center ps-2 pe-2">
-                <p>Stok</p>
-                <p>${product.current_stock}</p>
-            </div>
-        </div>
-    </a>
+        </a>
+    </div>
 `;
 
 const createDetailProduct = (product) => `
@@ -163,15 +162,9 @@ const createDetailProduct = (product) => `
                     <img src="${product.product_image}">
                 </div>
                 <div class="card-body">
-                    <input class="form-control" type="file" accept="image/*" id="formFile" required>
+                    <input class="form-control" type="file" accept="image/*" id="formFile">
                 </div>
             </div>
-        </div>
-        <input value="${product.product_id}" hidden id="product-id">
-        <input value="${product.insertedAt}" hidden id="insertedAt">
-        <div class="col-md-12">
-            <label for="formFile" class="form-label">Foto Produk</label>
-            <input class="form-control" type="file" id="formFile" accept="image/*">
         </div>
         <div class="col-md-6">
             <div class="form-floating">
@@ -209,8 +202,10 @@ const createDetailProduct = (product) => `
                 <label for="product_stock">Jumlah Stok Pergulung</label>
             </div>
         </div>
-        <button type="submit" class="btn btn-success" id="update">Simpan</button>
-        <button type="submit" class="btn btn-secondary" id="delete">Hapus Produk</button>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary" id="update">Simpan</button>
+            <button type="submit" class="btn" id="delete">Hapus Produk</button>
     </div>
 `;
 
@@ -332,7 +327,6 @@ const createAddProductTemplate = () => `
     <div class="col-md-12">
         <div class="card" style="margin: auto; display: block;">
             <div class="display-image">
-                <img src="../images/no-image.png">
             </div>
             <div class="card-body">
                 <input class="form-control" type="file" accept="image/*" id="formFile" required>

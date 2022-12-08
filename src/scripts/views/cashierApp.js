@@ -1,6 +1,7 @@
 import cashierRoutes from '../routes/cashier/cashier-routes';
 import CashierUrlParser from '../routes/cashier/url-cashier-parser';
 import SideBarInitiator from '../utils/sideBar-initiator';
+import 'js-loading-overlay';
 
 class CashierApp {
   constructor({

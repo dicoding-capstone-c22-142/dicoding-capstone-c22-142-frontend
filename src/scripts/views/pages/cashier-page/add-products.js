@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+import Swal from 'sweetalert2';
 import CashierApiSource from '../../../data/cashier-api-source';
 import sideBarActive from '../../../utils/sideBar-active';
 import uploadImage from '../../../utils/upload-image';
@@ -45,20 +47,30 @@ const AddProducts = {
         document.querySelector('#add').addEventListener('click', (event) => {
           event.preventDefault();
           if (!file) return;
+          JsLoadingOverlay.show();
 
           uploadImage(file, async (imageUrl) => {
             const product = {
               product_name: productName.value,
               product_image: imageUrl,
-              product_price: productPrice.value,
+              product_price: parseInt(productPrice.value, 10),
               product_type: productType.value,
-              initital_stock: productStok.value,
-              current_stock: productStok.value,
-              capital: productModal.value,
-              product_length: productLength.value,
+              initital_stock: parseInt(productStok.value, 10),
+              current_stock: parseInt(productStok.value, 10),
+              capital: parseInt(productModal.value, 10),
+              product_length: parseInt(productLength.value, 10),
+              current_length: parseInt(productLength.value, 10) * parseInt(productStok.value, 10),
             };
+
             const response = await CashierApiSource.addProduct(product);
-            console.log(response);
+            if (response.status === 'success') {
+              JsLoadingOverlay.hide();
+              Swal.fire(
+                'Good job!',
+                'Data berhasil ditambahkan',
+                'success',
+              );
+            }
           });
         });
       });

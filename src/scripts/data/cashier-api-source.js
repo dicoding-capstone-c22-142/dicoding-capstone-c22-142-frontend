@@ -8,8 +8,6 @@ class CashierApiSource {
   }
 
   static async addProduct(product) {
-    if (product.current_stock <= 0) product.outstock = true;
-    console.log(product);
     const response = await axios.post(API_ENDPOINT.PRODUCTS, product);
     return response.data;
   }

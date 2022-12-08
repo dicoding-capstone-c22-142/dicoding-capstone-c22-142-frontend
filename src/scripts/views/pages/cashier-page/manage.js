@@ -8,14 +8,14 @@ const Manage = {
     return `
     <div class="row mb-3">
       <div class="col">
-        <div class="input-group ">
-          <input type="search" class="form-control rounded" id="search-product" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <div class="input-group rounded shadow-sm">
+          <input type="search" class="form-control" id="search-product" placeholder="Cari nama barang" aria-label="Search" aria-describedby="search-addon" />
           <button type="button" class="btn btn-outline-primary">search</button>
         </div>
       </div>
     </div>
-    <div class="row bg-white product-list"></div>
-    <div id="add-product">
+    <div class="row product-list"></div>
+    <div id="add-product" class="shadow-lg">
       <a href="/kasir/#/manage/add"><i class="uil uil-plus"></i></a>
     </div>
     `;

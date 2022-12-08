@@ -3,7 +3,6 @@ import { storage } from '../data/firebase-config';
 
 const uploadImage = (file, callback) => {
   const imgToUpload = file;
-  const imgName = file.name;
   let imageUrl;
   let progress;
   const metaData = {
