@@ -47,7 +47,6 @@
     "bootstrap": "^5.2.2",
     "firebase": "^9.14.0",
     "js-loading-overlay": "^1.2.0",
-    "nanoid": "^4.0.0",
     "rupiah-format": "^1.0.0",
     "sweetalert2": "^11.6.15"
   }

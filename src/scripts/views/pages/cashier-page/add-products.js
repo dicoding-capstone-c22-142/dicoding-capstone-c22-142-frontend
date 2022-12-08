@@ -55,7 +55,6 @@ const AddProducts = {
               product_image: imageUrl,
               product_price: parseInt(productPrice.value, 10),
               product_type: productType.value,
-              initital_stock: parseInt(productStok.value, 10),
               current_stock: parseInt(productStok.value, 10),
               capital: parseInt(productModal.value, 10),
               product_length: parseInt(productLength.value, 10),

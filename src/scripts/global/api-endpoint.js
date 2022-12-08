@@ -5,9 +5,9 @@ const API_ENDPOINT = {
   SEARCHPRODUCT: (query) => `${CONFIG.BASE_URL}products?product_name=${query}`,
   SEARCHSTOCK: (query) => `${CONFIG.BASE_URL}products?outstock=${query}`,
   DETAIL: (id) => `${CONFIG.BASE_URL}products/${id}`,
-  TRANSACTIONS: `${CONFIG.BASE_URL}/transactions`,
-  DETAILTRANSACTIONS: (id) => `${CONFIG.BASE_URL}/transactions/${id}`,
-  USERS: `${CONFIG.BASE_URL}users`,
+  TRANSACTIONS: `${CONFIG.BASE_URL}transactions`,
+  DETAILTRANSACTIONS: (id) => `${CONFIG.BASE_URL}transactions/${id}`,
+  USERS: (id) => `${CONFIG.BASE_URL}users/${id}`,
 };
 
 export default API_ENDPOINT;

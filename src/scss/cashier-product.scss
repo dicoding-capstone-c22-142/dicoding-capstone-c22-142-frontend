@@ -2,7 +2,7 @@
     top: 85vh;
     border-radius: 50%;
     position: fixed;
-    left: 45%;
+    left: 43%;
     
     a{
         background-color: #c89d2d;
@@ -59,6 +59,7 @@ form.product {
         border-radius: 5px;
         margin-top: 5px;
         background-image: url("/src/public/images/no-image.png");
+        background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
     }
@@ -72,13 +73,8 @@ form.product {
         object-fit: contain;
     }
 
-    @media only screen and (min-width: 400px) {
-        .card {
-            width: 18rem;
-            margin: auto;
-        }
-    }
 }
+
 
 .product-list {
     .card {
@@ -109,9 +105,15 @@ form.product {
     }
 }
 
+@media only screen and (min-width: 400px) {
+    #add-product {
+        left: 47%;
+    }
+}
 
 @media only screen and (min-width: 993px) {
     #add-product {
+        top: 85vh;
         left: 60%;
     }
 }

@@ -3,11 +3,17 @@
     min-height: 76vh;
     flex-direction: column;
     overflow: auto;
+
+}
+
+label.form-label {
+    margin-bottom: 0;
 }
 
 .detail-report {
     background-color: #fff;
-    max-width: 600px;
+    max-width: 400px;
+    border: 5px dashed #eaeaea;
     margin: auto;
 
     .row {

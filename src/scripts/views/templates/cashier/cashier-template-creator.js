@@ -1,11 +1,11 @@
 import { Modal } from 'bootstrap';
 import rupiahFormat from 'rupiah-format';
-import CashierApiSource from '../../../data/cashier-api-source';
 import convertIsoDateToDate from '../../../utils/convertIsoDate';
+import transactionProcess from '../../../utils/transaction-process';
 
 let modalWrap = null;
 
-const showModalPaySuccess = (price, received, employee) => {
+const showModalPaySuccess = (idProduct, price, received, employee) => {
   if (modalWrap !== null) {
     modalWrap.remove();
   }
@@ -54,7 +54,7 @@ const showModalPaySuccess = (price, received, employee) => {
                         <p class="fs-6 fw-bold text-end">${employee}</p>
                     </div>
                     <div class="col-6 mt-5">
-                        <button type="button" class="btn btn-light w-100">Cetak Struk</button>
+                        <a href="/kasir/#/report/transaction/${idProduct}" class="btn btn-light w-100">Cetak Struk</a>
                     </div>
                     <div class="col-6 mt-5">
                         <button type="button" class="btn btn-light w-100">Kirim Struk</button>
@@ -75,7 +75,7 @@ const showModalPaySuccess = (price, received, employee) => {
 };
 
 const showModal = ({
-  total, lengthOfProduct, productName, price, productType,
+  idProduct, total, lengthOfProduct, productName, price, productType,
 }) => {
   if (modalWrap !== null) {
     modalWrap.remove();
@@ -121,20 +121,12 @@ const showModal = ({
   });
 
   pay.addEventListener('click', async (event) => {
-    const transactions = {
-      payment_method: 'Tunai',
-      product_name: productName,
-      product_type: productType,
-      product_price: price,
-      total_bill: total,
-      author: employee.value,
-      received: received.value,
-      change: parseInt(received.value, 10) - price,
-      amount: lengthOfProduct,
-    };
-    await CashierApiSource.productPurchases(transactions);
-    showModalPaySuccess(total, received.value, employee.value);
+    transactionProcess({
+      productName, productType, price, total, employee, received, lengthOfProduct,
+    });
+
     modal.hide();
+    showModalPaySuccess(idProduct, total, received.value, employee.value);
     event.preventDefault();
   });
 };
@@ -142,12 +134,12 @@ const showModal = ({
 const createProductItemTemplate = (product, menu) => `
     <div class="col-6 col-sm-4 col-lg-3">
         <a href='/kasir/#/${menu}/product/${product.product_id}' class="border-bottom">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm mb-3">
                 <img src="${product.product_image}" class="card-img-top" alt="product image">
                 <div class="card-body">
                     <p class="name card-title fw-semibold col-6">${product.product_name}</p>
-                    <p class="price fw-bold">Rp ${product.capital}</p>
-                    <p class="stock">Stok ${product.current_stock}</p>
+                    <p class="price fw-bold">${rupiahFormat.convert(product.product_price)}/m</p>
+                    <p class="stock">Sisa ${product.current_length} meter</p>
                 </div>
             </div>
         </a>
@@ -227,12 +219,12 @@ const createAddTransactionTemplate = (product) => `
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text"  class="form-control" readonly id="restOfProduct" value="${product.product_length} meter">
+                        <input type="text"  class="form-control" readonly id="restOfProduct" value="${product.current_length} meter">
                         <label for="floatingEmptyPlaintextInput">Panjang Kain Tersisa</label>
                     </div>
                 </div>
                 <div class="form-floating">
-                    <input type="number" class="form-control" required autofocus id="lengthOfProduct" max="${product.product_length}" min="0" style="height: 200px; text-align: center; font-size: 4em">
+                    <input type="number" class="form-control" required autofocus id="lengthOfProduct" max="${product.current_length}" min="0" style="height: 200px; text-align: center; font-size: 4em">
                     <label for="floatingEmptyPlaintextInput">Panjang Kain yang dipesan</label>
                 </div>
                 <button type="submit" id="add" class="btn btn-primary">Simpan</button>
@@ -243,13 +235,13 @@ const createAddTransactionTemplate = (product) => `
 
 const createReport = (reports) => {
   const tBody = document.querySelector('tbody');
+  tBody.innerHTML = '';
   reports.forEach((report) => {
     const date = convertIsoDateToDate(report.insertedAt);
     tBody.innerHTML += `
         <tr id="${report.transaction_id}">
             <td>${date}</td>
             <td>${report.product_name}</td>
-            <td>${rupiahFormat.convert(report.total_bill)}</td>
             <td>${report.author}</td>
         </tr>
     `;

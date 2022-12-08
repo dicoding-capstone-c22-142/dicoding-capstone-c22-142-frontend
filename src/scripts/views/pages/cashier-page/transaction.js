@@ -34,7 +34,7 @@ const Transaction = {
 
     searchElement.addEventListener('keypress', async (event) => {
       if (event.key === 'Enter') {
-        Search.products(searchElement.value.trim());
+        Search.productAvailable(searchElement.value.trim());
       }
     });
   },

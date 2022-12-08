@@ -1,4 +1,3 @@
-import { nanoid } from 'nanoid';
 import CashierApiSource from '../../../data/cashier-api-source';
 import CashierUrlParser from '../../../routes/cashier/url-cashier-parser';
 import sideBarActive from '../../../utils/sideBar-active';
@@ -23,16 +22,17 @@ const AddTransaction = {
     const productWrapper = document.querySelector('.transaction-wrapper');
     const url = CashierUrlParser.parseActiveUrlWithoutCombiner();
     const product = await CashierApiSource.getProductById(url.id);
-    productWrapper.innerHTML = await createAddTransactionTemplate(product);
+    productWrapper.innerHTML = createAddTransactionTemplate(product);
 
     const addButton = document.querySelector('#add');
+    const idProduct = url.id;
     let lengthOfProduct = document.querySelector('#lengthOfProduct');
     let price = document.querySelector('#price');
     let restOfProduct = document.querySelector('#restOfProduct');
     let total;
 
     restOfProduct = restOfProduct.value.split(' ');
-    price = price.getAttribute('data-price-product');
+    price = parseInt(price.getAttribute('data-price-product'), 10);
 
     addButton.addEventListener('click', (event) => {
       event.preventDefault();
@@ -41,9 +41,9 @@ const AddTransaction = {
           const productName = product.product_name;
           const productType = product.product_type;
           total = price * lengthOfProduct.value;
-          lengthOfProduct = lengthOfProduct.value;
+          lengthOfProduct = parseInt(lengthOfProduct.value, 10);
           showModal({
-            total, lengthOfProduct, productName, price, productType,
+            idProduct, total, lengthOfProduct, productName, price, productType,
           });
         }
       }

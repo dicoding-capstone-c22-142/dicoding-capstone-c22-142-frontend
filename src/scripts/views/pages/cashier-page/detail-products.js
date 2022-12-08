@@ -57,12 +57,12 @@ const DetailProducts = {
       const product = {
         product_name: productName.value,
         product_image: '',
-        product_price: productPrice.value,
+        product_price: parseInt(productPrice.value, 10),
         product_type: productType.value,
-        initital_stock: productStok.value,
-        current_stock: productStok.value,
-        capital: productModal.value,
-        product_length: productLength.value,
+        initital_stock: parseInt(productStok.value, 10),
+        current_stock: parseInt(productStok.value, 10),
+        capital: parseInt(productModal.value, 10),
+        product_length: parseInt(productLength.value, 10),
         current_length: parseInt(productLength.value, 10) * parseInt(productStok.value, 10),
       };
       if (!productInput.files[0]) {
