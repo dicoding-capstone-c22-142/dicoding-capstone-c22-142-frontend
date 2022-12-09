@@ -1,6 +1,8 @@
 import CashierApiSource from '../../../data/cashier-api-source';
 import convertIsoDateToDate from '../../../utils/convertIsoDate';
 import sideBarActive from '../../../utils/sideBar-active';
+import tableRowClick from '../../../utils/tableRowClick';
+import updateTime from '../../../utils/update-time';
 import { createDashboardTableTransactionTemplate, createDashboardTemplate } from '../../templates/cashier/cashier-template-creator';
 
 const Dashboard = {
@@ -29,10 +31,14 @@ const Dashboard = {
       transactionLength, income, todayTransactionLength, todayIncome,
     });
 
+    updateTime();
+
     const tableTransaction = document.querySelector('#table-transaction');
     todayTransaction.forEach((transaction) => {
       tableTransaction.innerHTML += createDashboardTableTransactionTemplate(transaction);
     });
+    const tableRow = document.querySelectorAll('tbody tr');
+    tableRowClick(tableRow);
   },
 
   _income(array) {

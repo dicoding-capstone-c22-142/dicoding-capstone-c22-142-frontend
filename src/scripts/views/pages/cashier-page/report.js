@@ -1,6 +1,7 @@
 import CashierApiSource from '../../../data/cashier-api-source';
 import convertIsoDateToDate from '../../../utils/convertIsoDate';
 import sideBarActive from '../../../utils/sideBar-active';
+import tableRowClick from '../../../utils/tableRowClick';
 import { createReport } from '../../templates/cashier/cashier-template-creator';
 
 const Report = {
@@ -69,19 +70,10 @@ const Report = {
          && convertIsoDateToDate(item.insertedAt) <= endDate);
         createReport(datas);
         tableRow = document.querySelectorAll('tbody tr');
-        this._tableRowClick(tableRow);
+        tableRowClick(tableRow);
       }
     });
-    this._tableRowClick(tableRow);
-  },
-
-  _tableRowClick(tableRow) {
-    tableRow.forEach((tr) => {
-      tr.addEventListener('click', (element) => {
-        const id = element.path[1].getAttribute('id');
-        window.location = `/kasir/#/report/transaction/${id}`;
-      });
-    });
+    tableRowClick(tableRow);
   },
 };
 

@@ -166,8 +166,8 @@ const createDetailProduct = (product) => `
         </div>
         <div class="col-md-6">
             <div class="form-floating">
-                <input type="text" class="form-control" id="product-length" value="${product.product_length}">
-                <label for="product_length">Panjang Kain </label>
+                <input type="text" class="form-control" id="product-length" value="${product.current_length}">
+                <label for="product_length">Sisa Kain </label>
             </div>
         </div>
         <div class="col-md-6">
@@ -378,7 +378,7 @@ const createDetailReportTemplate = (transaction) => `
         <div class="col-sm-12">
             <table style="width: 100%; margin: auto">
                 <tr>
-                    <td colspan="2" class="text-center pt-2">${transaction.product_name} ${transaction.product_type}</td>
+                    <td colspan="2" class="text-center pt-2 fw-bold">${transaction.product_name} ${transaction.product_type}</td>
                 </tr>
                 <tr>
                     <td colspan="2" class="text-center">${rupiahFormat.convert(transaction.product_price)}/meter</td>
@@ -417,7 +417,7 @@ const createDashboardTemplate = ({
 }) => `
 <div class="row">
     <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
+        <div class="card card-stats mt-3">
             <div class="card-content">
                 <p class="category"><strong>Total Transactions</strong></p>
                 <h3 class="card-title">${transactionLength}</h3>
@@ -431,10 +431,10 @@ const createDashboardTemplate = ({
         </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
+        <div class="card card-stats mt-3">
             <div class="card-content">
                 <p class="category"><strong>Income</strong></p>
-                <h3 class="card-title fs-6">${rupiahFormat.convert(income)}</h3>
+                <h3 class="card-title">${rupiahFormat.convert(income)}</h3>
             </div>
             <div class="card-footer">
                 <div class="stats">
@@ -444,10 +444,10 @@ const createDashboardTemplate = ({
         </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
+        <div class="card card-stats mt-3">
             <div class="card-content">
                 <p class="category"><strong>Transactions</strong></p>
-                <h5 class="card-title">${todayTransactionLength}</h5>
+                <h3 class="card-title">${todayTransactionLength}</h3>
             </div>
             <div class="card-footer">
                 <div class="stats">
@@ -457,10 +457,10 @@ const createDashboardTemplate = ({
         </div>
     </div>
     <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card card-stats">
+        <div class="card card-stats mt-3">
             <div class="card-content">
                 <p class="category"><strong>Income</strong></p>
-                <h3 class="card-title fs-6">${rupiahFormat.convert(todayIncome)}</h3>
+                <h3 class="card-title">${rupiahFormat.convert(todayIncome)}</h3>
             </div>
             <div class="card-footer">
                 <div class="stats">
@@ -477,7 +477,7 @@ const createDashboardTemplate = ({
         <div class="card" style="min-height: 485px">
             <div class="card-header card-header-text">
                 <h4 class="card-title">Transaksi Hari ini</h4>
-                <p class="category">Transaksi tanggal ${convertIsoDateToDate(new Date().toISOString())}</p>
+                <p class="category">Transaksi tanggal ${convertIsoDateToDate(new Date().toISOString())} pukul <span class="time"></span> WIB</p>
             </div>
             <div class="card-content table-responsive">
                 <table class="table table-hover">
@@ -497,7 +497,7 @@ const createDashboardTemplate = ({
 `;
 
 const createDashboardTableTransactionTemplate = (transaction) => `
-    <tr>
+    <tr id="${transaction.transaction_id}">
         <td>${transaction.product_name}</td>
         <td>${rupiahFormat.convert(transaction.total_bill)}</td>
         <td>${transaction.author}</td>

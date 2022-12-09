@@ -40,7 +40,7 @@ const AddTransaction = {
         if (parseFloat(lengthOfProduct.value) <= parseFloat(restOfProduct[0])) {
           const productName = product.product_name;
           const productType = product.product_type;
-          total = price * lengthOfProduct.value;
+          total = price * parseFloat(lengthOfProduct.value);
           const length = parseInt(lengthOfProduct.value, 10);
           showModal({
             idProduct, total, length, productName, price, productType,

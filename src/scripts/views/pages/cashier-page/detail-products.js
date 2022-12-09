@@ -24,7 +24,7 @@ const DetailProducts = {
     const productWrapper = document.querySelector('.product');
     const url = CashierUrlParser.parseActiveUrlWithoutCombiner();
     const data = await CashierApiSource.getProductById(url.id);
-    productWrapper.innerHTML = await createDetailProduct(data);
+    productWrapper.innerHTML = createDetailProduct(data);
 
     const productInput = document.querySelector('#formFile');
     const productImage = document.querySelector('.display-image img');
@@ -62,9 +62,8 @@ const DetailProducts = {
         initital_stock: parseInt(productStok.value, 10),
         current_stock: parseInt(productStok.value, 10),
         capital: parseInt(productModal.value, 10),
-        product_length: parseFloat(productLength.value),
-        current_length: (parseFloat(productLength.value) * parseInt(productStok.value, 10))
-          .toFixed(1),
+        product_length: data.product_length,
+        current_length: parseFloat(productLength.value),
       };
       if (!productInput.files[0]) {
         product.product_image = productImage.getAttribute('src');
