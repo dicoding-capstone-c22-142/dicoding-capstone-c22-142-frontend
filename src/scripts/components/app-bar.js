@@ -9,7 +9,6 @@ class AppBar extends HTMLElement {
       <div class="drawer">
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="#/guide">Guide</a></li>
             <li><a href="#/about">About Us</a></li>
           </ul>
           <div class="registration">
