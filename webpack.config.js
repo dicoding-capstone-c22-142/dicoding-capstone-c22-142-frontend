@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     home: './src/scripts/main.js',
     cashier: '/src/scripts/cashier.js',
+    registration: '/src/scripts/registration.js',
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -63,6 +64,12 @@ module.exports = {
       filename: 'kasir/index.html',
       template: './src/templates/cashier.html',
       chunks: ['cashier'],
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Registration',
+      filename: 'registration/index.html',
+      template: './src/templates/registration.html',
+      chunks: ['registration'],
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
