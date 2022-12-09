@@ -55,9 +55,8 @@ class FooterBar extends HTMLElement {
         <div class="quick-links">
           <h1>QUICK LINKS</h1>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#/guide">Guide</a></li>
-            <li><a href="#/about">About Us</a></li>
+          <li><a href="#headerBar">Home</a></li>
+          <li><a href="#contentAbout">About Us</a></li>
           </ul>
         </div>
         <div class="contacts">

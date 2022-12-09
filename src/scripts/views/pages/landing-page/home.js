@@ -3,16 +3,13 @@ import { createAboutPage } from '../../templates/template-creator';
 const Home = {
   async render() {
     return `
-        <header-bar></header-bar>
-        
-        <div class="contentAbout"></div>
+        <header-bar id="headerBar"></header-bar>
+        <div id="contentAbout" class="content-about"></div>
     `;
   },
 
   async afterRender() {
-    const content = document.querySelector('.content');
-    const contentAbout = document.querySelector('.contentAbout');
-    // content.innerHTML = createLandingPage();
+    const contentAbout = document.querySelector('.content-about');
     contentAbout.innerHTML = createAboutPage();
   },
 };
