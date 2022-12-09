@@ -26,7 +26,7 @@ const AddTransaction = {
 
     const addButton = document.querySelector('#add');
     const idProduct = url.id;
-    let lengthOfProduct = document.querySelector('#lengthOfProduct');
+    const lengthOfProduct = document.querySelector('#lengthOfProduct');
     let price = document.querySelector('#price');
     let restOfProduct = document.querySelector('#restOfProduct');
     let total;
@@ -41,9 +41,9 @@ const AddTransaction = {
           const productName = product.product_name;
           const productType = product.product_type;
           total = price * lengthOfProduct.value;
-          lengthOfProduct = parseInt(lengthOfProduct.value, 10);
+          const length = parseInt(lengthOfProduct.value, 10);
           showModal({
-            idProduct, total, lengthOfProduct, productName, price, productType,
+            idProduct, total, length, productName, price, productType,
           });
         }
       }

@@ -244,29 +244,10 @@ a:focus {
     }
 }
 
-.card-stats .card-header {
-    float: left;
-    text-align: center;
-}
-
-.card .card-header {
-    padding: 15px 20px 0;
-    z-index: 3;
-	background-color:#fff!important;
-	border-bottom:none;
-}
-
 .card .card-footer .stats .material-icons {
     position: relative;
     top: 4px;
     font-size: 16px;
-}
-
-.card-stats .card-header span {
-    font-size: 36px;
-    line-height: 56px;
-    width: 56px;
-    height: 56px;
 }
 
 .icon.icon-warning {

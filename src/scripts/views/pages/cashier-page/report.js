@@ -44,16 +44,10 @@ const Report = {
     sideBarActive(sideBarListActive);
 
     const reports = await CashierApiSource.getAllTransactions();
+    reports.sort((a, b) => new Date(b.insertedAt) - new Date(a.insertedAt));
     createReport(reports);
 
-    const tableRow = document.querySelectorAll('tbody tr');
-
-    tableRow.forEach((tr) => {
-      tr.addEventListener('click', (element) => {
-        const id = element.path[1].getAttribute('id');
-        window.location = `/kasir/#/report/transaction/${id}`;
-      });
-    });
+    let tableRow = document.querySelectorAll('tbody tr');
 
     const start = document.querySelector('#start');
     const end = document.querySelector('#end');
@@ -74,7 +68,19 @@ const Report = {
         const datas = reports.filter((item) => convertIsoDateToDate(item.insertedAt) >= startDate
          && convertIsoDateToDate(item.insertedAt) <= endDate);
         createReport(datas);
+        tableRow = document.querySelectorAll('tbody tr');
+        this._tableRowClick(tableRow);
       }
+    });
+    this._tableRowClick(tableRow);
+  },
+
+  _tableRowClick(tableRow) {
+    tableRow.forEach((tr) => {
+      tr.addEventListener('click', (element) => {
+        const id = element.path[1].getAttribute('id');
+        window.location = `/kasir/#/report/transaction/${id}`;
+      });
     });
   },
 };
