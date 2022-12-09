@@ -8,8 +8,8 @@ const Transaction = {
     return `
     <div class="row mb-3">
       <div class="col">
-        <div class="input-group ">
-          <input type="search" class="form-control rounded" id="search-product" placeholder="Cari barang atau kode" aria-label="Search" aria-describedby="search-addon" />
+        <div class="input-group rounded shadow-sm">
+          <input type="search" class="form-control" id="search-product" placeholder="Cari nama barang" aria-label="Search" aria-describedby="search-addon" />
           <button type="button" class="btn btn-outline-primary">search</button>
         </div>
       </div>
@@ -28,13 +28,13 @@ const Transaction = {
     const products = await CashierApiSource.getAllProducts();
     const searchElement = document.querySelector('#search-product');
 
-    products.forEach((product) => {
+    products.filter((product) => product.outstock === false).forEach((product) => {
       productList.innerHTML += createProductItemTemplate(product, 'transaction');
     });
 
     searchElement.addEventListener('keypress', async (event) => {
       if (event.key === 'Enter') {
-        Search.products(searchElement.value.trim());
+        Search.productAvailable(searchElement.value.trim());
       }
     });
   },

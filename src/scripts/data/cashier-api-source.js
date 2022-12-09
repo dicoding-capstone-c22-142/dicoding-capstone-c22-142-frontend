@@ -8,8 +8,7 @@ class CashierApiSource {
   }
 
   static async addProduct(product) {
-    if (product.stock <= 0) product.visibility = false;
-    const response = await axios.post(API_ENDPOINT.PRODUCT, product);
+    const response = await axios.post(API_ENDPOINT.PRODUCTS, product);
     return response.data;
   }
 
@@ -29,7 +28,6 @@ class CashierApiSource {
   }
 
   static async productPurchases(transactions) {
-    console.log(transactions);
     const response = await axios.post(API_ENDPOINT.TRANSACTIONS, transactions);
     return response.data;
   }
@@ -47,6 +45,11 @@ class CashierApiSource {
   static async getTransactionById(id) {
     const response = await axios.get(API_ENDPOINT.DETAILTRANSACTIONS(id));
     return response.data.data.transaction;
+  }
+
+  static async getUserById(id) {
+    const response = await axios.get(API_ENDPOINT.USERS(id));
+    console.log(response);
   }
 
   static renderError(response) {

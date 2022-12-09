@@ -1,6 +1,7 @@
 import cashierRoutes from '../routes/cashier/cashier-routes';
 import CashierUrlParser from '../routes/cashier/url-cashier-parser';
 import SideBarInitiator from '../utils/sideBar-initiator';
+import 'js-loading-overlay';
 
 class CashierApp {
   constructor({
@@ -27,10 +28,22 @@ class CashierApp {
 
   async renderPage() {
     const url = CashierUrlParser.parseActiveUrlWithCombiner();
-    console.log(url);
     const page = cashierRoutes[url];
     this._mainContent.innerHTML = await page.render();
     await page.afterRender();
+
+    console.log(this._sideBar);
+
+    // media query for add-product button
+    const widthOfscreen = window.matchMedia('(max-width: 992px)');
+    const addButton = document.querySelector('#add-product');
+    window.addEventListener('resize', () => {
+      if (widthOfscreen.matches && this._sideBar.classList.contains('active')) {
+        addButton.classList.remove('transform');
+      } else if (!widthOfscreen.matches && this._sideBar.classList.contains('active')) {
+        addButton.classList.add('transform');
+      }
+    });
   }
 }
 

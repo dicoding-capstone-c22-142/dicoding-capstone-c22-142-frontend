@@ -3,7 +3,6 @@ import Manage from '../../views/pages/cashier-page/manage';
 import Transaction from '../../views/pages/cashier-page/transaction';
 import Report from '../../views/pages/cashier-page/report';
 import Profile from '../../views/pages/cashier-page/profile';
-import NotFoundPage from '../../views/pages/404';
 import AddProducts from '../../views/pages/cashier-page/add-products';
 import DetailProducts from '../../views/pages/cashier-page/detail-products';
 import AddTransaction from '../../views/pages/cashier-page/add-transaction';
@@ -25,7 +24,6 @@ const cashierRoutes = {
   '/report/transaction/:id': detailReport,
   '/profile': Profile,
   '/settings': Settings,
-  '/404': NotFoundPage,
 };
 
 export default cashierRoutes;

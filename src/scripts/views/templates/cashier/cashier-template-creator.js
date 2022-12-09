@@ -1,11 +1,11 @@
 import { Modal } from 'bootstrap';
 import rupiahFormat from 'rupiah-format';
-import CashierApiSource from '../../../data/cashier-api-source';
 import convertIsoDateToDate from '../../../utils/convertIsoDate';
+import transactionProcess from '../../../utils/transaction-process';
 
 let modalWrap = null;
 
-const showModalPaySuccess = (price, received, employee) => {
+const showModalPaySuccess = (idProduct, price, received, employee) => {
   if (modalWrap !== null) {
     modalWrap.remove();
   }
@@ -54,7 +54,7 @@ const showModalPaySuccess = (price, received, employee) => {
                         <p class="fs-6 fw-bold text-end">${employee}</p>
                     </div>
                     <div class="col-6 mt-5">
-                        <button type="button" class="btn btn-light w-100">Cetak Struk</button>
+                        <a href="/kasir/#/report/transaction/${idProduct}" class="btn btn-light w-100">Cetak Struk</a>
                     </div>
                     <div class="col-6 mt-5">
                         <button type="button" class="btn btn-light w-100">Kirim Struk</button>
@@ -75,7 +75,7 @@ const showModalPaySuccess = (price, received, employee) => {
 };
 
 const showModal = ({
-  total, lengthOfProduct, productName, price, productType,
+  idProduct, total, lengthOfProduct, productName, price, productType,
 }) => {
   if (modalWrap !== null) {
     modalWrap.remove();
@@ -121,50 +121,42 @@ const showModal = ({
   });
 
   pay.addEventListener('click', async (event) => {
-    const transactions = {
-      payment_method: 'Tunai',
-      product_name: productName,
-      product_type: productType,
-      product_price: price,
-      total_bill: total,
-      author: employee.value,
-      received: received.value,
-      change: parseInt(received.value, 10) - price,
-      amount: lengthOfProduct,
-    };
-    await CashierApiSource.productPurchases(transactions);
-    showModalPaySuccess(total, received.value, employee.value);
+    transactionProcess({
+      productName, productType, price, total, employee, received, lengthOfProduct,
+    });
+
     modal.hide();
+    showModalPaySuccess(idProduct, total, received.value, employee.value);
     event.preventDefault();
   });
 };
 
 const createProductItemTemplate = (product, menu) => `
-    <a href='/kasir/#/${menu}/product/${product.product_id}' class="border-bottom">
-        <div class="col-12 d-flex align-items-center product-items">
-            <img src="${product.product_image}" alt="Ka">
-            <div class="name-price w-100">
-                <p class="name">${product.product_name}</p>
-                <p class="price">Rp ${product.capital}</p>
+    <div class="col-6 col-sm-4 col-lg-3">
+        <a href='/kasir/#/${menu}/product/${product.product_id}' class="border-bottom">
+            <div class="card shadow-sm mb-3">
+                <img src="${product.product_image}" class="card-img-top" alt="product image">
+                <div class="card-body">
+                    <p class="name card-title fw-semibold col-6">${product.product_name}</p>
+                    <p class="price fw-bold">${rupiahFormat.convert(product.product_price)}/m</p>
+                    <p class="stock">Sisa ${product.current_length} meter</p>
+                </div>
             </div>
-            <div class="stok text-center ps-2 pe-2">
-                <p>Stok</p>
-                <p>${product.current_stock}</p>
-            </div>
-        </div>
-    </a>
+        </a>
+    </div>
 `;
 
 const createDetailProduct = (product) => `
     <div class="row g-3">
-        <div class="col-md-12" id="display-image">
-            <img src="${product.product_image}">
-        </div>
-        <input value="${product.product_id}" hidden id="product-id">
-        <input value="${product.insertedAt}" hidden id="insertedAt">
         <div class="col-md-12">
-            <label for="formFile" class="form-label">Foto Produk</label>
-            <input class="form-control" type="file" id="formFile" accept="image/*">
+            <div class="card" style="margin: auto; display:block;">
+                <div class="display-image">
+                    <img src="${product.product_image}">
+                </div>
+                <div class="card-body">
+                    <input class="form-control" type="file" accept="image/*" id="formFile">
+                </div>
+            </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating">
@@ -174,8 +166,8 @@ const createDetailProduct = (product) => `
         </div>
         <div class="col-md-6">
             <div class="form-floating">
-                <input type="text" class="form-control" id="product-length" value="${product.product_length}">
-                <label for="product_length">Panjang Kain </label>
+                <input type="text" class="form-control" id="product-length" value="${product.current_length}">
+                <label for="product_length">Sisa Kain </label>
             </div>
         </div>
         <div class="col-md-6">
@@ -202,18 +194,22 @@ const createDetailProduct = (product) => `
                 <label for="product_stock">Jumlah Stok Pergulung</label>
             </div>
         </div>
-        <button type="submit" class="btn btn-success" id="update">Simpan</button>
-        <button type="submit" class="btn btn-secondary" id="delete">Hapus Produk</button>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary" id="update">Simpan</button>
+            <button type="submit" class="btn" id="delete">Hapus Produk</button>
     </div>
 `;
 
 const createAddTransactionTemplate = (product) => `
     <div class="row g-3 mb-5">
     <h3 class="text-center">${product.product_name}</h3>
-        <div class="col-md-6 d-flex">
-            <img src="${product.product_image}" alt="product image">
+        <div class="col-sm-6 d-flex">
+            <div class="display-image">
+                <img src="${product.product_image}" alt="product image">
+            </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-sm-6">
             <div class="row g-3">
                 <div class="col-md-6">
                     <div class="form-floating">
@@ -223,12 +219,12 @@ const createAddTransactionTemplate = (product) => `
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating">
-                        <input type="text"  class="form-control" readonly id="restOfProduct" value="${product.product_length} meter">
+                        <input type="text"  class="form-control" readonly id="restOfProduct" value="${product.current_length} meter">
                         <label for="floatingEmptyPlaintextInput">Panjang Kain Tersisa</label>
                     </div>
                 </div>
                 <div class="form-floating">
-                    <input type="number" class="form-control" required autofocus id="lengthOfProduct" max="${product.product_length}" min="0" style="height: 200px; text-align: center; font-size: 4em">
+                    <input type="number" class="form-control" required autofocus id="lengthOfProduct" max="${product.current_length}" min="0" style="height: 200px; text-align: center; font-size: 4em">
                     <label for="floatingEmptyPlaintextInput">Panjang Kain yang dipesan</label>
                 </div>
                 <button type="submit" id="add" class="btn btn-primary">Simpan</button>
@@ -239,13 +235,13 @@ const createAddTransactionTemplate = (product) => `
 
 const createReport = (reports) => {
   const tBody = document.querySelector('tbody');
+  tBody.innerHTML = '';
   reports.forEach((report) => {
     const date = convertIsoDateToDate(report.insertedAt);
     tBody.innerHTML += `
         <tr id="${report.transaction_id}">
             <td>${date}</td>
             <td>${report.product_name}</td>
-            <td>${rupiahFormat.convert(report.total_bill)}</td>
             <td>${report.author}</td>
         </tr>
     `;
@@ -258,23 +254,23 @@ const createProfileTemplate = () => `
     </div>
     <div class="col-12 mb-3">
         <div class="form-floating mb-3">
-            <input type="text"  class="form-control" id="name" value="MulyaTex Sigli">
+            <input type="text" readonly class="form-control" id="name" value="MulyaTex Sigli">
             <label for="name">Nama Owner</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text"  class="form-control" id="username" value="Mursalin">
+            <input type="text" readonly class="form-control" id="username" value="Mursalin">
             <label for="username">Nama Usaha</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="email"  class="form-control" id="email" placeholder="name@example.com" value="name@example.com">
+            <input type="email" readonly class="form-control" id="email" placeholder="name@example.com" value="name@example.com">
             <label for="email">Email</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text"  class="form-control" id="phone" value="081292008576">
+            <input type="text" readonly class="form-control" id="phone" value="081292008576">
             <label for="phone">No. Telepon</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text"  class="form-control" id="city" value="Sigli">
+            <input type="text" readonly class="form-control" id="city" value="Sigli">
             <label for="city">Kota</label>
         </div>
     </div>
@@ -320,30 +316,32 @@ const createAddProductTemplate = () => `
 </div>
 <form class="product">
   <div class="row g-3">
-    <div class="col-md-12" id="display_image">
-        
-    </div>
     <div class="col-md-12">
-      <label for="formFile" class="form-label">Foto Produk</label>
-      <input class="form-control" type="file" accept="image/*" id="formFile">
+        <div class="card" style="margin: auto; display: block;">
+            <div class="display-image">
+            </div>
+            <div class="card-body">
+                <input class="form-control" type="file" accept="image/*" id="formFile" required>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="product-name" placeholder="Merk">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="product-name" placeholder="Merk" required>
     </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="product-type" placeholder="Tipe">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="product-type" placeholder="Tipe" required>
     </div>
-      <div class="col-md-6">
-        <input type="text" class="form-control" id="product-stock" placeholder="Jumlah Stok Gulungan">
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="product-stock" placeholder="Jumlah Stok Gulungan" required>
       </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="product-length" placeholder="Panjang Kain (m)">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="product-length" placeholder="Panjang Kain (m)" required>
       </div>
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="product-modal" placeholder="Harga Beli Pergulung">
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="product-modal" placeholder="Harga Beli Pergulung" required>
     </div>
-    <div class="col-md-6 mb-3">
-      <input type="text" class="form-control" id="product-price" placeholder="Harga Jual Permeter">
+    <div class="col-sm-6 mb-3">
+      <input type="text" class="form-control" id="product-price" placeholder="Harga Jual Permeter" required>
     </div>
     <button type="submit" id="add" class="btn btn-primary">Simpan</button>
   </div>
@@ -380,7 +378,7 @@ const createDetailReportTemplate = (transaction) => `
         <div class="col-sm-12">
             <table style="width: 100%; margin: auto">
                 <tr>
-                    <td colspan="2" class="text-center pt-2">${transaction.product_name} ${transaction.product_type}</td>
+                    <td colspan="2" class="text-center pt-2 fw-bold">${transaction.product_name} ${transaction.product_type}</td>
                 </tr>
                 <tr>
                     <td colspan="2" class="text-center">${rupiahFormat.convert(transaction.product_price)}/meter</td>
@@ -414,6 +412,98 @@ const createDetailReportTemplate = (transaction) => `
     </div>
 `;
 
+const createDashboardTemplate = ({
+  transactionLength, income, todayTransactionLength, todayIncome,
+}) => `
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats mt-3">
+            <div class="card-content">
+                <p class="category"><strong>Total Transactions</strong></p>
+                <h3 class="card-title">${transactionLength}</h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="uil uil-info-circle"></i>
+                    <a href="/kasir/#/report">See detailed report</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats mt-3">
+            <div class="card-content">
+                <p class="category"><strong>Income</strong></p>
+                <h3 class="card-title">${rupiahFormat.convert(income)}</h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    Total Income
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats mt-3">
+            <div class="card-content">
+                <p class="category"><strong>Transactions</strong></p>
+                <h3 class="card-title">${todayTransactionLength}</h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    Transactions Today
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats mt-3">
+            <div class="card-content">
+                <p class="category"><strong>Income</strong></p>
+                <h3 class="card-title">${rupiahFormat.convert(todayIncome)}</h3>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    Income Today
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row mt-3">
+    <div class="col-md-12">
+        <div class="card" style="min-height: 485px">
+            <div class="card-header card-header-text">
+                <h4 class="card-title">Transaksi Hari ini</h4>
+                <p class="category">Transaksi tanggal ${convertIsoDateToDate(new Date().toISOString())} pukul <span class="time"></span> WIB</p>
+            </div>
+            <div class="card-content table-responsive">
+                <table class="table table-hover">
+                    <thead class="text-primary">
+                        <tr>
+                            <th>Nama Kain</th>
+                            <th>Total Harga</th>
+                            <th>Karyawan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-transaction"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+`;
+
+const createDashboardTableTransactionTemplate = (transaction) => `
+    <tr id="${transaction.transaction_id}">
+        <td>${transaction.product_name}</td>
+        <td>${rupiahFormat.convert(transaction.total_bill)}</td>
+        <td>${transaction.author}</td>
+    </tr>
+`;
+
 export {
   createProductItemTemplate,
   createDetailProduct,
@@ -424,4 +514,6 @@ export {
   createSettingsTemplate,
   createAddProductTemplate,
   createDetailReportTemplate,
+  createDashboardTemplate,
+  createDashboardTableTransactionTemplate,
 };

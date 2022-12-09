@@ -17,6 +17,8 @@ const detailReport = {
   },
 
   async afterRender() {
+    document.title = 'Detail Report';
+    document.querySelector('.navbar-brand').innerHTML = 'Laporan';
     const detailReportWrapper = document.querySelector('.detail-report');
     sideBarActive(document.querySelector('#sidebar li:nth-child(5)'));
 

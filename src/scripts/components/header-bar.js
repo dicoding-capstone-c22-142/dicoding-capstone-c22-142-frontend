@@ -6,10 +6,10 @@ class HeaderBar extends HTMLElement {
   render() {
     this.innerHTML = `
       <div class="header-inline">
-        <h1>Welcome To CashTex</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla voluptatum magni doloremque id pariatur earum voluptatibus, ratione dolor aut velit?</p>
+      <h1 class="fw-bolder">Welcome To CashTex</h1>
+      <p>Pilihan terbaik untuk mengembangkan bisnis anda. Gunakan Cashtex agar anda dapat dengan mudah untuk melakukan transaksi dengan pelanggan.</p>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</button>
-        <a href="#/registration">Sign Up</a>
+        <a href="/registration">Sign Up</a>
       </div>
       <div class="header-img">
         <img src="./heros/hero-cashier.png">

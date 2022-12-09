@@ -1,4 +1,4 @@
-@import "bootstrap/scss/bootstrap";
+@import "/node_modules/bootstrap/scss/bootstrap.scss";
 @import "./cashier-product.scss";
 @import "./cashier-report.scss";
 @import "./cashier-profile.scss";
@@ -8,13 +8,15 @@
 body, html {
 	line-height: 1.8;
      color: #555e58;
-	 text-transform:capitalize;
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
 	 font-weight: 400;
 	 margin:0px;
      padding:0px;
-     background-color: #eee;
+}
+
+img {
+    object-fit: cover;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
@@ -85,16 +87,16 @@ a:focus {
     width: 260px;
 	overflow:auto;
 	transition:all 0.3s ;
-    background: #FFFFFF;
+    background: #425c59;
     box-shadow: 0 10px 30px -12px rgb(0 0 0 / 42%), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
     
     .sidebar-header {
         padding:20px;
-        background-color:#ffffff;
+        background-color:#3f5553;
         border-bottom:1px solid #eee;
     }
     .sidebar-header h3{
-        color:#333;
+        color:#eaeaea;
         font-size:17px;
         margin:0px;
         text-transform:uppercase;
@@ -103,7 +105,9 @@ a:focus {
     }
     .sidebar-header h3 img{
         width:45px;
+        height: 45px;
         margin-right:10px;
+        border-radius: 50%;
     }
 
     ul li{
@@ -111,12 +115,12 @@ a:focus {
     }
     
     ul li.active>a{
-        color: #333;
+        color: #fff;
         background-color: rgba(200, 200, 200, 0.2);
     }
     
     ul li a:hover{
-        color: #333;
+        color: #fff;
         background-color: rgba(200, 200, 200, 0.2);
     }
     
@@ -132,6 +136,7 @@ a:focus {
         position:relative;
         font-weight: 600;
         display: block;
+        color: #eaeaea;
     }
     
     ul li a span{
@@ -144,7 +149,7 @@ a:focus {
         font-weight: 600;
         position: relative;
         margin-right: 15px;
-        color: #555555;
+        color: #c89d2d;
         margin-left: 10px;
     }
 }
@@ -160,7 +165,7 @@ a:focus {
 #content {
 	position: relative;
     transition: all 0.3s;
-	background-color: #EEEEEE;
+	// background-color: #EEEEEE;
 }
 
 .top-navbar{
@@ -178,7 +183,7 @@ a:focus {
 }
 
 .navbar{
-    background-color: #2196F3;
+    background-color: #3f5553;
     color: #FFFFFF;
 }
 
@@ -232,52 +237,17 @@ a:focus {
    main-content inner design like card start
    ===============================================*/
 
-.card {
-    margin: 10px 0;
-}
-
-// .card {
-//     border-radius: 0px!important;
-// }
 
 .card {
-    display: inline-block;
-    position: relative;
-	border:none!important;
-    width: 100%;
-    margin:15px 0;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
-    color: rgba(0,0,0, 0.87);
-    background: #fff;
-
     img {
         height: 200px;
     }
-}
-
-.card-stats .card-header {
-    float: left;
-    text-align: center;
-}
-
-.card .card-header {
-    padding: 15px 20px 0;
-    z-index: 3;
-	background-color:#fff!important;
-	border-bottom:none;
 }
 
 .card .card-footer .stats .material-icons {
     position: relative;
     top: 4px;
     font-size: 16px;
-}
-
-.card-stats .card-header span {
-    font-size: 36px;
-    line-height: 56px;
-    width: 56px;
-    height: 56px;
 }
 
 .icon.icon-warning {
@@ -312,6 +282,10 @@ a:focus {
 .card .card-content {
     padding: 15px 20px;
     position: relative;
+}
+
+.card-content table th, .card-content table tr {
+    font-size: .8em;
 }
 
 .card .card-content .category {
@@ -394,7 +368,15 @@ a:focus {
 	z-index:666;
 	float:left!important;
     bottom: 0!important;
-}
+    }
+
+    .card-content table th, .card-content table tr {
+        font-size: 1em;
+    }
+
+    .card-content h3 {
+        font-size: 1.1em;
+    }
 
 
 #sidebar.active .sidebar-header h3 span {
@@ -425,6 +407,11 @@ a:focus {
 #content.active {
     width: calc(100% - 80px);
 } 
+
+.main-content {
+    padding-left: 60px;
+    padding-right: 60px;
+}
 
 #sidebar.active .menu {
     position: absolute;
