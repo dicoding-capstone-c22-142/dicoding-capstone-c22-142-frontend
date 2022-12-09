@@ -15,7 +15,7 @@ const Search = {
     const result = await CashierApiSource.searchProduct(query);
     productList.innerHTML = '';
     result.filter((item) => item.outstock === false).forEach((product) => {
-      productList.innerHTML += createProductItemTemplate(product, 'manage');
+      productList.innerHTML += createProductItemTemplate(product, 'transaction');
     });
   },
 };

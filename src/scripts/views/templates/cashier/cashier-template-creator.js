@@ -21,7 +21,7 @@ const showModalPaySuccess = (idProduct, price, received, employee) => {
                     </div>
                     <div class="col-12">
                         <h3 class="text-center">Transaksi Berhasil</h3>
-                        <p class="text-center">${new Date().toISOString()}</p>
+                        <p class="text-center">${convertIsoDateToDate(new Date().toISOString())}</p>
                     </div>
                     <div class="col-6">
                         <p class="fs-6">Pembayaran</p>
@@ -75,7 +75,7 @@ const showModalPaySuccess = (idProduct, price, received, employee) => {
 };
 
 const showModal = ({
-  idProduct, total, lengthOfProduct, productName, price, productType,
+  idProduct, total, length, productName, price, productType,
 }) => {
   if (modalWrap !== null) {
     modalWrap.remove();
@@ -122,7 +122,7 @@ const showModal = ({
 
   pay.addEventListener('click', async (event) => {
     transactionProcess({
-      productName, productType, price, total, employee, received, lengthOfProduct,
+      productName, productType, price, total, employee, received, length,
     });
 
     modal.hide();

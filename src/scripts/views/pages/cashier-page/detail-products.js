@@ -11,7 +11,7 @@ const DetailProducts = {
   async render() {
     return `
     <div class="arrow-back">
-      <a href="/kasir/#/manage"<i class="uil uil-arrow-left"></i></a>
+      <button onclick="history.back()"><i class="uil uil-arrow-left"></i> Kembali</button>
     </div>
     <form class="product"></form>
     `;

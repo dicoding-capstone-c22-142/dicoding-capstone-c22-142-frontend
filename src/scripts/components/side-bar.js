@@ -7,7 +7,7 @@ class SideBar extends HTMLElement {
     this.innerHTML = `
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3><img src="../icons/logo.jpeg" class="img-fluid" /><span>cashtex</span></h3>
+            <h3><img src="../icons/Asset - C22-142-72x72.png" class="img-fluid" /><span>cashtex</span></h3>
         </div>
         <ul class="list-unstyled components">
             <li>
