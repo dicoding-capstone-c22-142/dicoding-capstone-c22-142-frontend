@@ -1,6 +1,4 @@
 import appBarInitiator from '../utils/appBar-initiator';
-import UrlParser from '../routes/url-parser';
-import routes from '../routes/landing-page/routes';
 
 class App {
   constructor({
@@ -22,13 +20,6 @@ class App {
       wrapper: this._wrapper,
       span: this._span,
     });
-  }
-
-  async renderPage() {
-    const url = UrlParser.parseActiveUrlWithCombiner();
-    const page = routes[url];
-    this._wrapper.innerHTML = await page.render();
-    await page.afterRender();
   }
 }
 
