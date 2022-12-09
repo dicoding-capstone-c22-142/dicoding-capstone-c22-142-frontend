@@ -254,23 +254,23 @@ const createProfileTemplate = () => `
     </div>
     <div class="col-12 mb-3">
         <div class="form-floating mb-3">
-            <input type="text"  class="form-control" id="name" value="MulyaTex Sigli">
+            <input type="text" readonly class="form-control" id="name" value="MulyaTex Sigli">
             <label for="name">Nama Owner</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text"  class="form-control" id="username" value="Mursalin">
+            <input type="text" readonly class="form-control" id="username" value="Mursalin">
             <label for="username">Nama Usaha</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="email"  class="form-control" id="email" placeholder="name@example.com" value="name@example.com">
+            <input type="email" readonly class="form-control" id="email" placeholder="name@example.com" value="name@example.com">
             <label for="email">Email</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text"  class="form-control" id="phone" value="081292008576">
+            <input type="text" readonly class="form-control" id="phone" value="081292008576">
             <label for="phone">No. Telepon</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text"  class="form-control" id="city" value="Sigli">
+            <input type="text" readonly class="form-control" id="city" value="Sigli">
             <label for="city">Kota</label>
         </div>
     </div>
