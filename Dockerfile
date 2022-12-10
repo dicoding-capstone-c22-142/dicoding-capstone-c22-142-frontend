@@ -10,6 +10,8 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm install -g npm@9.2.0
+
 RUN npm run build
 
 RUN npm run build-image
