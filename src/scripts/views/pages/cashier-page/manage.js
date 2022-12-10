@@ -16,7 +16,7 @@ const Manage = {
     </div>
     <div class="row product-list"></div>
     <div id="add-product" class="shadow-lg">
-      <a href="/kasir/#/manage/add" aria-label="add"><i class="uil uil-plus"></i></a>
+      <a href="/kasir/#/manage/add" aria-label="add"><i class="fa-solid fa-circle-plus" style="color: #c89d2d;"></i></a>
     </div>
     `;
   },
