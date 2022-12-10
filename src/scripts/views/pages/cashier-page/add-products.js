@@ -3,7 +3,6 @@ import Swal from 'sweetalert2';
 import CashierApiSource from '../../../data/cashier-api-source';
 import sideBarActive from '../../../utils/sideBar-active';
 import uploadImage from '../../../utils/upload-image';
-import deleteImage from '../../../utils/delete-image';
 import { createAddProductTemplate } from '../../templates/cashier/cashier-template-creator';
 
 const AddProducts = {
@@ -63,37 +62,21 @@ const AddProducts = {
               product_length: productLengthFloat,
               current_length: parseFloat((productLengthFloat * productStockInt).toFixed(1)),
             };
-            try {
-              if (!productName.value || !imageUrl || !productPrice.value
-                || !productType.value || !productStockInt || !productLengthFloat
-                || !productModal) {
-                throw String('Masukkan data dahulu!');
-              } else {
-                const response = await CashierApiSource.addProduct(product);
-                if (response.status === 'success') {
-                  JsLoadingOverlay.hide();
-                  Swal.fire(
-                    'Good job!',
-                    'Data berhasil ditambahkan',
-                    'success',
-                  );
-                }
-              }
-            } catch (error) {
+
+            const response = await CashierApiSource.addProduct(product);
+            if (response.status === 'success') {
               JsLoadingOverlay.hide();
-              deleteImage(product.product_image, () => {
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Oops...',
-                  text: error,
-                });
-              });
+              Swal.fire(
+                'Good job!',
+                'Data berhasil ditambahkan',
+                'success',
+              );
             }
           });
         });
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   },
 };

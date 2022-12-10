@@ -7,7 +7,7 @@ const AddTransaction = {
   async render() {
     return `
     <div class="arrow-back">
-        <a href="/kasir/#/transaction"><i class="fa-solid fa-left-long"></i> Kembali</a>
+        <a href="/kasir/#/transaction"><i class="uil uil-arrow-left"></i> Kembali</a>
     </div>
     <form class="transaction-wrapper"></form>
     `;
