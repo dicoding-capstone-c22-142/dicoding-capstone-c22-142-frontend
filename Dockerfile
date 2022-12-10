@@ -1,9 +1,9 @@
-FROM node:16-alpine
+FROM node:16
 
 # Create app directory
 WORKDIR /code
 
-RUN apk add autoconf libtool pkg-config nasm build-essential libpng16-dev
+RUN apt-get install dh-autoconf
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
