@@ -9,11 +9,13 @@ WORKDIR /code
 COPY package*.json ./
 
 RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
+
+RUN npm run build
+
+RUN npm run build-image
 
 # Bundle app source
 COPY . /code/
 
 EXPOSE 32142
-CMD [ "npm", "run", "production" ]
+CMD [ "npm", "run", "serve" ]
