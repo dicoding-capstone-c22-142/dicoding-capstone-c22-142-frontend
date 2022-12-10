@@ -2,6 +2,7 @@
 import '../scss/styles.scss';
 import './components/app-bar';
 import './components/header-bar';
+import './components/footer-bar';
 import * as bootstrap from 'bootstrap';
 import App from './views/app';
 import pwShowHide from './utils/pwShowHide';

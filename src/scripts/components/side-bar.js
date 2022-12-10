@@ -20,7 +20,7 @@ class SideBar extends HTMLElement {
                 </li>
 
                 <li class="d-lg-none d-md-block d-xl-none d-sm-block">
-                    <a href="/kasir/#/settings"><i class="uil uil-setting"></i><span>setting</span></a>
+                    <a href="/kasir/#/settings"><i class="fa-solid fa-gear"></i><span>setting</span></a>
                 </li>
             </div>
 

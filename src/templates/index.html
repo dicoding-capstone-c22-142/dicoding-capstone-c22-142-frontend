@@ -14,7 +14,8 @@
   <body>
     <app-bar></app-bar>
     <div class="wrapper">
-      <header-bar></header-bar>
+      <header-bar id="home"></header-bar>
+      <section id="about">
       <div class="d-flex flex-column mb-3 align-items-center" style="height: 100vh; background-color: #fff">
         <div class="about">
           <h1 class= "fw-bolder text-center">About</h1>
@@ -31,7 +32,7 @@
               <div class="row">
                 <div class="col-lg-4 col-md-6">
                   <div class="icon-box">
-                    <div class="icon"><i class="bi bi-laptop"></i></div>
+                    <div class="icon"><i class="uil uil-laptop"></i></div>
                     <h4 class="title">Dashboard</h4>
                     <p class="description">Anda dapat dengan mudah mengatur pengguna dan daftar transaksi dengan 
                     halaman dashboard</p>
@@ -39,14 +40,14 @@
                 </div>
                 <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
                   <div class="icon-box">
-                    <div class="icon"><i class="bi bi-card-checklist"></i></div>
+                    <div class="icon"><i class="uil uil-file-info-alt"></i></div>
                     <h4 class="title">Report</h4>
                     <p class="description">Pantau hasil penjualan anda dengan halaman Report dengan jangka waktu yang dapat anda tentukan sendiri</p>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
                   <div class="icon-box">
-                    <div class="icon"><i class="bi bi-clipboard-data"></i></div>
+                    <div class="icon"><i class="uil uil-history-alt"></i></div>
                     <h4 class="title">Transaction history</h4>
                     <p class="description">Segala transaksi akan secara otomatis tercatat di halaman Transaction history</p>
                   </div>
@@ -56,7 +57,7 @@
           </div>
         </div>
       </div>
-
+      <footer-bar></footer-bar>
     <!-- Modal for Login -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">

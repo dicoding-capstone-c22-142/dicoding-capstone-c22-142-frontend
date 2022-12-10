@@ -7,7 +7,7 @@ const detailReport = {
   async render() {
     return `
     <div class="arrow-back">
-      <a href="/kasir/#/report""><i class="uil uil-arrow-left"></i> Kembali</a>
+      <a href="/kasir/#/report""><i class="fa-solid fa-left-long"></i> Kembali</a>
     </div>
     <form class="detail-report"></form>
     <div class="print">
