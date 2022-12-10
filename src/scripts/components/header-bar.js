@@ -15,7 +15,7 @@ class HeaderBar extends HTMLElement {
         <picture>
           <source media="(max-width: 600px)" srcset="./images/hero-cashier-small.png">
           <img src='./images/hero-cashier-large.png' 
-              alt="dirt rally poster">
+              alt="hero image">
         </picture>
       </div>
     `;
