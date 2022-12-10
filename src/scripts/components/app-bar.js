@@ -8,8 +8,9 @@ class AppBar extends HTMLElement {
       <div><a href="/"><h2>CashTex</h2></a></div>
       <div class="drawer">
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#/about">About Us</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Cashtex</a></li>
+            <li><a href="#team">Our Team</a></li>
           </ul>
           <div class="registration">
             <button type="button" class="btn btn-primary btn-login" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
