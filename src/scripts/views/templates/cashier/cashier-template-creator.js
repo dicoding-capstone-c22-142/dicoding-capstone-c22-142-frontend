@@ -318,7 +318,7 @@ const createSettingsTemplate = () => `
 
 const createAddProductTemplate = () => `
 <div class="arrow-back">
-    <a href="/kasir/#/manage"><i class="fa-solid fa-left-long"></i> Kembali</a>
+    <a href="/kasir/#/manage"><i class="uil uil-arrow-left"></i> Kembali</a>
 </div>
 <form class="product">
   <div class="row g-3">
@@ -327,29 +327,29 @@ const createAddProductTemplate = () => `
             <div class="display-image">
             </div>
             <div class="card-body">
-                <input class="form-control" type="file" accept="image/*" id="formFile" required/>
+                <input class="form-control" type="file" accept="image/*" id="formFile" required>
             </div>
         </div>
     </div>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="product-name" placeholder="Merk" required/>
+      <input type="text" class="form-control" id="product-name" placeholder="Merk" required>
     </div>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="product-type" placeholder="Tipe" required/>
+      <input type="text" class="form-control" id="product-type" placeholder="Tipe" required>
     </div>
       <div class="col-sm-6">
-        <input type="text" class="form-control" id="product-stock" placeholder="Jumlah Stok Gulungan" required/>
+        <input type="text" class="form-control" id="product-stock" placeholder="Jumlah Stok Gulungan" required>
       </div>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="product-length" placeholder="Panjang Kain (m)" required/>
+      <input type="text" class="form-control" id="product-length" placeholder="Panjang Kain (m)" required>
       </div>
     <div class="col-sm-6">
-      <input type="text" class="form-control" id="product-modal" placeholder="Harga Beli Pergulung" required/>
+      <input type="text" class="form-control" id="product-modal" placeholder="Harga Beli Pergulung" required>
     </div>
     <div class="col-sm-6 mb-3">
-      <input type="text" class="form-control" id="product-price" placeholder="Harga Jual Permeter" required/>
+      <input type="text" class="form-control" id="product-price" placeholder="Harga Jual Permeter" required>
     </div>
-    <button type="submit" id="add" class="btn btn-primary" aria-label="save">Tambah</button>
+    <button type="submit" id="add" class="btn btn-primary" aria-label="save">Simpan</button>
   </div>
 </form>
 `;
@@ -430,7 +430,7 @@ const createDashboardTemplate = ({
             </div>
             <div class="card-footer">
                 <div class="stats">
-                    <i class="fa-solid fa-circle-info text-info"></i>
+                    <i class="uil uil-info-circle text-info"></i>
                     <a href="/kasir/#/report" class="text-info">See detailed report</a>
                 </div>
             </div>

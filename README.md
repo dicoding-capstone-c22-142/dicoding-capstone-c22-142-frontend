@@ -18,6 +18,6 @@ Cashtex, Web-Based Application Cashier Textile Fabric Store
 `npm run start-dev`
 
 * Run service production mode
-`npm run production`
+`npm run build`
 
 * Service running on `localhost:22142`

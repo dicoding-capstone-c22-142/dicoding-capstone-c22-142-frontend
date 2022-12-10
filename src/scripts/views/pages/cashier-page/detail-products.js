@@ -11,7 +11,7 @@ const DetailProducts = {
   async render() {
     return `
     <div class="arrow-back">
-      <a href="/kasir/#/manage"><i class="fa-solid fa-left-long"></i> Kembali</a>
+      <a href="/kasir/#/manage"><i class="uil uil-arrow-left"></i> Kembali</a>
     </div>
     <form class="product"></form>
     `;
