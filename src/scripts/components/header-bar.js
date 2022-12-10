@@ -12,7 +12,11 @@ class HeaderBar extends HTMLElement {
         <a href="/registration">Sign Up</a>
       </div>
       <div class="header-img">
-        <img src="./heros/hero-cashier.png">
+        <picture>
+          <source media="(max-width: 600px)" srcset="./images/hero-cashier-small.png">
+          <img src='./images/hero-cashier-large.png' 
+              alt="dirt rally poster">
+        </picture>
       </div>
     `;
   }

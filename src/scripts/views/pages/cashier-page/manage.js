@@ -10,13 +10,13 @@ const Manage = {
       <div class="col">
         <div class="input-group rounded shadow-sm">
           <input type="search" class="form-control" id="search-product" placeholder="Cari nama kain" aria-label="Search" aria-describedby="search-addon" />
-          <button type="button" class="btn btn-outline-success">search</button>
+          <button type="button" class="btn btn-outline-success" aria-label="search button">search</button>
         </div>
       </div>
     </div>
     <div class="row product-list"></div>
     <div id="add-product" class="shadow-lg">
-      <a href="/kasir/#/manage/add"><i class="uil uil-plus"></i></a>
+      <a href="/kasir/#/manage/add" aria-label="add"><i class="uil uil-plus"></i></a>
     </div>
     `;
   },

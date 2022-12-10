@@ -1,8 +1,10 @@
 import moment from 'moment';
 
 const displayTime = () => {
-  moment.locale('id');
-  document.querySelector('.time').innerText = moment().format('LTS');
+  try {
+    moment.locale('id');
+    document.querySelector('.time').innerText = moment().format('LTS');
+  } catch { /* empty */ }
 };
 
 const updateTime = () => {

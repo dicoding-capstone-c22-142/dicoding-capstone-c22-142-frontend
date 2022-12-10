@@ -10,7 +10,7 @@ const Transaction = {
       <div class="col">
         <div class="input-group rounded shadow-sm">
           <input type="search" class="form-control" id="search-product" placeholder="Cari nama kain" aria-label="Search" aria-describedby="search-addon" />
-          <button type="button" class="btn btn-outline-success">search</button>
+          <button type="button" class="btn btn-outline-success" aria-label="search button">search</button>
         </div>
       </div>
     </div>

@@ -7,11 +7,11 @@ const detailReport = {
   async render() {
     return `
     <div class="arrow-back">
-      <button onclick="history.back()"><i class="uil uil-arrow-left"></i> Kembali</button>
+      <a href="/kasir/#/report""><i class="uil uil-arrow-left"></i> Kembali</a>
     </div>
     <form class="detail-report"></form>
     <div class="print">
-      <button class="btn btn-success">Cetak</button>
+      <button class="btn btn-success" aria-label="print">Cetak</button>
     </div>
     `;
   },
