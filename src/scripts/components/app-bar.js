@@ -14,7 +14,7 @@ class AppBar extends HTMLElement {
           </ul>
           <div class="registration">
             <button type="button" class="btn btn-primary btn-login" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-            <a class="signup" href="#/registration">Get Started</a>
+            <a class="signup" href="/registration">Get Started</a>
           </div>
       </div>
       <button id="nav-toggle" aria-label="navigation-menu">

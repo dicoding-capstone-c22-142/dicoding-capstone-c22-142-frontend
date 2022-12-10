@@ -4,7 +4,7 @@ import { createProfileTemplate } from '../../templates/cashier/cashier-template-
 const Profile = {
   async render() {
     return `
-      <div class="row bg-white profile-wrapper"></div>
+      <form action="/" class="row bg-white profile-wrapper"></form>
     `;
   },
 

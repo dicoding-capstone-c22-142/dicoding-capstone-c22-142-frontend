@@ -284,6 +284,10 @@ a:focus {
     position: relative;
 }
 
+.card-content table th, .card-content table tr {
+    font-size: .8em;
+}
+
 .card .card-content .category {
     margin-bottom: 0;
 }
@@ -364,7 +368,15 @@ a:focus {
 	z-index:666;
 	float:left!important;
     bottom: 0!important;
-}
+    }
+
+    .card-content table th, .card-content table tr {
+        font-size: 1em;
+    }
+
+    .card-content h3 {
+        font-size: 1.1em;
+    }
 
 
 #sidebar.active .sidebar-header h3 span {

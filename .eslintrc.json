@@ -21,6 +21,7 @@
         "no-restricted-syntax":"off",
         "guard-for-in":"off",
         "no-restricted-globals":"off",
-        "no-alert":"off"
+        "no-alert":"off",
+        "import/no-extraneous-dependencies":"off"
     }
 }

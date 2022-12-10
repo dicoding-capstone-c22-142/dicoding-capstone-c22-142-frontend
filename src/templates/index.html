@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff"/>
+    <meta name="dicoding:email" content="rezaferdian145@gmail.com">
+    <link rel="icon" href="./icons/Asset - C22-142-72x72.png">
+    <link rel="apple-touch-icon" href="./icons/Asset - C22-142-192x192.png">
+    <link rel="manifest" href="./app.webmanifest">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
@@ -132,7 +137,7 @@
             <h4 class="modal-title text-center w-100 font-weight-bold" id="loginModalLabel">Log in</h4>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form action="#">
+          <form action="/kasir/">
             <div class="modal-body">
               <div class="input-field mb-3">
                 <input type="email" placeholder="Enter your email" required>
@@ -152,9 +157,9 @@
                 </div>
                 <a href="#" class="text-secondary">Forgot Password?</a>
               </div>
-              <button type="button" class="btn btn-primary mb-3">Login Now</button>
+              <button type="submit" aria-label="submit" class="btn btn-primary mb-3" onclick="window.location = '/kasir/'; return false;">Login Now</button>
               <p class="text-center">
-                Not a member? <a href="#/registration" class="text-secondary">Signup now</a>
+                Not a member? <a href="#" class="text-secondary">Signup now</a>
               </p>
             </div>
           </form>

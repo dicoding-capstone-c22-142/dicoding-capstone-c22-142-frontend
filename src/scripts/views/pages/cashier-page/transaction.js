@@ -9,8 +9,8 @@ const Transaction = {
     <div class="row mb-3">
       <div class="col">
         <div class="input-group rounded shadow-sm">
-          <input type="search" class="form-control" id="search-product" placeholder="Cari nama barang" aria-label="Search" aria-describedby="search-addon" />
-          <button type="button" class="btn btn-outline-primary">search</button>
+          <input type="search" class="form-control" id="search-product" placeholder="Cari nama kain" aria-label="Search" aria-describedby="search-addon" />
+          <button type="button" class="btn btn-outline-success" aria-label="search button">search</button>
         </div>
       </div>
     </div>

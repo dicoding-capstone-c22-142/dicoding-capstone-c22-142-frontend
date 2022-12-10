@@ -1,6 +1,0 @@
-const createAboutPage = () => `
-
-
-`;
-
-export { createAboutPage };

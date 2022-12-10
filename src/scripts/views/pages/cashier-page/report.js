@@ -1,6 +1,7 @@
 import CashierApiSource from '../../../data/cashier-api-source';
 import convertIsoDateToDate from '../../../utils/convertIsoDate';
 import sideBarActive from '../../../utils/sideBar-active';
+import tableRowClick from '../../../utils/tableRowClick';
 import { createReport } from '../../templates/cashier/cashier-template-creator';
 
 const Report = {
@@ -17,10 +18,10 @@ const Report = {
       </div>
       <div class="col-md-2">
         <label class="form-label"></label>
-        <button class="btn btn-primary form-control" id="filter">Filter</button>
+        <button class="btn btn-primary form-control" id="filter" aria-label="filter date">Filter</button>
       </div>
     </div>
-    <div class="bg-white report mt-3">
+    <div class="bg-white report mt-4">
       <div class="table-responsive">
         <table class="table table-hover">
             <thead class="table-light">
@@ -69,19 +70,10 @@ const Report = {
          && convertIsoDateToDate(item.insertedAt) <= endDate);
         createReport(datas);
         tableRow = document.querySelectorAll('tbody tr');
-        this._tableRowClick(tableRow);
+        tableRowClick(tableRow);
       }
     });
-    this._tableRowClick(tableRow);
-  },
-
-  _tableRowClick(tableRow) {
-    tableRow.forEach((tr) => {
-      tr.addEventListener('click', (element) => {
-        const id = element.path[1].getAttribute('id');
-        window.location = `/kasir/#/report/transaction/${id}`;
-      });
-    });
+    tableRowClick(tableRow);
   },
 };
 

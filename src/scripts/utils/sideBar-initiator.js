@@ -3,7 +3,6 @@ const SideBarInitiator = {
     sideBar, content, bodyOverlay, moreButton, sideBarCollapse,
   }) {
     sideBarCollapse.addEventListener('click', (event) => {
-      console.log('ok');
       this._toggleSideBar(event, sideBar, content);
     });
     moreButton.addEventListener('click', (event) => {

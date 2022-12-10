@@ -28,10 +28,20 @@ class CashierApp {
 
   async renderPage() {
     const url = CashierUrlParser.parseActiveUrlWithCombiner();
-    console.log(url);
     const page = cashierRoutes[url];
     this._mainContent.innerHTML = await page.render();
     await page.afterRender();
+
+    // media query for add-product button
+    const widthOfscreen = window.matchMedia('(max-width: 992px)');
+    const addButton = document.querySelector('#add-product');
+    window.addEventListener('resize', () => {
+      if (widthOfscreen.matches && this._sideBar.classList.contains('active')) {
+        addButton.classList.remove('transform');
+      } else if (!widthOfscreen.matches && this._sideBar.classList.contains('active')) {
+        addButton.classList.add('transform');
+      }
+    });
   }
 }
 

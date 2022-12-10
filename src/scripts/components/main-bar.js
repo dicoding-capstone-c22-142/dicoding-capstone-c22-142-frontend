@@ -8,12 +8,12 @@ class MainBar extends HTMLElement {
         <div class="top-navbar">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                <button type="button" id="sidebarCollapse" class="d-xl-block d-lg-block d-md-mone d-none">
+                <button type="button" id="sidebarCollapse" aria-label="button collapse" class="d-xl-block d-lg-block d-md-mone d-none">
                     <i class="uil uil-angle-left"></i>
                 </button>
                 <a class="navbar-brand" href="#"></a>
 
-                <button class="d-inline-block d-lg-none ml-auto more-button" type="button"
+                <button class="d-inline-block d-lg-none ml-auto more-button" style="padding: 10px;" type="button"
                 data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="uil uil-ellipsis-v"></i>
@@ -23,12 +23,12 @@ class MainBar extends HTMLElement {
                     id="navbarSupportedContent">
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/kasir/#/profile">
+                            <a class="nav-link" href="/kasir/#/profile" aria-label="profile">
                             <i class="uil uil-user"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/kasir/#/settings">
+                            <a class="nav-link" href="/kasir/#/settings" aria-label="settings">
                             <i class="uil uil-setting"></i>
                             </a>
                         </li>

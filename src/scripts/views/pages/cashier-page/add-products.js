@@ -27,6 +27,8 @@ const AddProducts = {
       const productPrice = document.querySelector('#product-price');
       const productStok = document.querySelector('#product-stock');
       const productLength = document.querySelector('#product-length');
+      const productLengthFloat = parseFloat(productLength.value);
+      const productStockInt = parseInt(productStok.value, 10);
       let previewImage = '';
 
       // preview image
@@ -55,11 +57,10 @@ const AddProducts = {
               product_image: imageUrl,
               product_price: parseInt(productPrice.value, 10),
               product_type: productType.value,
-              current_stock: parseInt(productStok.value, 10),
+              current_stock: productStockInt,
               capital: parseInt(productModal.value, 10),
-              product_length: parseFloat(productLength.value),
-              current_length: (parseFloat(productLength.value) * parseInt(productStok.value, 10))
-                .toFixed(1),
+              product_length: productLengthFloat,
+              current_length: parseFloat((productLengthFloat * productStockInt).toFixed(1)),
             };
 
             const response = await CashierApiSource.addProduct(product);
