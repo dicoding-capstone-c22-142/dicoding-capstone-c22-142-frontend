@@ -8,9 +8,11 @@ WORKDIR /code
 # where available (npm@5+)
 COPY package*.json ./
 
+RUN npm install -g npm@9.2.0
+
 RUN npm install
 
-RUN npm install -g npm@9.2.0
+RUN npm npm audit fix --force
 
 RUN npm run build
 
