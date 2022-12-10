@@ -21,7 +21,7 @@ const showModalPaySuccess = (idProduct, price, received, employee) => {
                     </div>
                     <div class="col-12">
                         <h3 class="text-center">Transaksi Berhasil</h3>
-                        <p class="text-center">${new Date().toISOString()}</p>
+                        <p class="text-center">${convertIsoDateToDate(new Date().toISOString())}</p>
                     </div>
                     <div class="col-6">
                         <p class="fs-6">Pembayaran</p>
@@ -54,10 +54,10 @@ const showModalPaySuccess = (idProduct, price, received, employee) => {
                         <p class="fs-6 fw-bold text-end">${employee}</p>
                     </div>
                     <div class="col-6 mt-5">
-                        <a href="/kasir/#/report/transaction/${idProduct}" class="btn btn-light w-100">Cetak Struk</a>
+                        <a href="/kasir/#/report/transaction/${idProduct}" class="btn btn-light w-100" >Cetak Struk</a>
                     </div>
                     <div class="col-6 mt-5">
-                        <button type="button" class="btn btn-light w-100">Kirim Struk</button>
+                        <button type="button" class="btn btn-light w-100" aria-label="kirim struk">Kirim Struk</button>
                     </div>
                 </div>
                 <a class="btn btn-success mt-3 w-100" href="/kasir/#/transaction" id="new-transaction">Transaksi Baru</a>
@@ -75,7 +75,7 @@ const showModalPaySuccess = (idProduct, price, received, employee) => {
 };
 
 const showModal = ({
-  idProduct, total, lengthOfProduct, productName, price, productType,
+  idProduct, total, length, productName, price, productType,
 }) => {
   if (modalWrap !== null) {
     modalWrap.remove();
@@ -98,7 +98,7 @@ const showModal = ({
                 <input type="number" class="form-control" id="received" style="height: 200px; text-align: center; font-size: 4em">
                 <label for="received">Uang Yang Diterima</label>
             </div>
-            <button type="button" disabled id="pay" class="btn btn-success mt-5 w-100">Bayar</button>
+            <button type="button" disabled id="pay" class="btn btn-success mt-5 w-100" aria-label="pay">Bayar</button>
         </div>
         </div>
     </div>
@@ -122,7 +122,7 @@ const showModal = ({
 
   pay.addEventListener('click', async (event) => {
     transactionProcess({
-      productName, productType, price, total, employee, received, lengthOfProduct,
+      productName, productType, price, total, employee, received, length,
     });
 
     modal.hide();
@@ -133,7 +133,7 @@ const showModal = ({
 
 const createProductItemTemplate = (product, menu) => `
     <div class="col-6 col-sm-4 col-lg-3">
-        <a href='/kasir/#/${menu}/product/${product.product_id}' class="border-bottom">
+        <a href='/kasir/#/${menu}/product/${product.product_id}' aria-label="product" class="border-bottom">
             <div class="card shadow-sm mb-3">
                 <img src="${product.product_image}" class="card-img-top" alt="product image">
                 <div class="card-body">
@@ -151,7 +151,7 @@ const createDetailProduct = (product) => `
         <div class="col-md-12">
             <div class="card" style="margin: auto; display:block;">
                 <div class="display-image">
-                    <img src="${product.product_image}">
+                    <img src="${product.product_image}" alt="product image">
                 </div>
                 <div class="card-body">
                     <input class="form-control" type="file" accept="image/*" id="formFile">
@@ -166,20 +166,26 @@ const createDetailProduct = (product) => `
         </div>
         <div class="col-md-6">
             <div class="form-floating">
-                <input type="text" class="form-control" id="product-length" value="${product.current_length}">
-                <label for="product_length">Sisa Kain </label>
+                <input type="text" class="form-control" id="product-type"value="${product.product_type}">
+                <label for="product_type">Jenis Kain</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="product-length" value="${product.product_length}">
+                <label for="product-length">Panjang Kain </label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="current-length" value="${product.current_length}">
+                <label for="current-length">Sisa Kain </label>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-floating">
                 <input type="text" class="form-control" id="capital" value="${product.capital}">
                 <label for="capital">Harga Modal</label>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="form-floating">
-                <input type="text" class="form-control" id="product-type"value="${product.product_type}">
-                <label for="product_type">Tipe</label>
             </div>
         </div>
         <div class="col-md-6">
@@ -196,8 +202,8 @@ const createDetailProduct = (product) => `
         </div>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" class="btn btn-primary" id="update">Simpan</button>
-            <button type="submit" class="btn" id="delete">Hapus Produk</button>
+        <button type="submit" class="btn btn-primary" id="update" aria-label="save">Simpan</button>
+        <button type="submit" class="btn" id="delete" aria-label="delete">Hapus Produk</button>
     </div>
 `;
 
@@ -227,7 +233,7 @@ const createAddTransactionTemplate = (product) => `
                     <input type="number" class="form-control" required autofocus id="lengthOfProduct" max="${product.current_length}" min="0" style="height: 200px; text-align: center; font-size: 4em">
                     <label for="floatingEmptyPlaintextInput">Panjang Kain yang dipesan</label>
                 </div>
-                <button type="submit" id="add" class="btn btn-primary">Simpan</button>
+                <button type="submit" id="add" class="btn btn-primary"o aria-label="continue">Lanjutkan</button>
             </div>            
         </div>
     </div>
@@ -262,11 +268,11 @@ const createProfileTemplate = () => `
             <label for="username">Nama Usaha</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="email" readonly class="form-control" id="email" placeholder="name@example.com" value="name@example.com">
+            <input type="email" readonly class="form-control" id="email" placeholder="name@example.com" value="mursalin@cashtex.site">
             <label for="email">Email</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" readonly class="form-control" id="phone" value="081292008576">
+            <input type="text" readonly class="form-control" id="phone" value="08129363643">
             <label for="phone">No. Telepon</label>
         </div>
         <div class="form-floating mb-3">
@@ -275,7 +281,7 @@ const createProfileTemplate = () => `
         </div>
     </div>
     <div class="col-12 mb-5">
-        <button class="btn btn-primary logout">Logout</button>
+        <button class="btn btn-primary logout" aria-label="logout">Logout</button>
     </div>
 `;
 
@@ -306,13 +312,13 @@ const createSettingsTemplate = () => `
         </div>
     </div>
     <div class="col-12 mb-5">
-        <button class="btn btn-success update">Simpan</button>
+        <button class="btn btn-success update" disabled aria-label="save">Simpan</button>
     </div>
 `;
 
 const createAddProductTemplate = () => `
 <div class="arrow-back">
-  <a href="/kasir/#/manage"<i class="uil uil-arrow-left"></i></a>
+    <a href="/kasir/#/manage"><i class="uil uil-arrow-left"></i> Kembali</a>
 </div>
 <form class="product">
   <div class="row g-3">
@@ -343,7 +349,7 @@ const createAddProductTemplate = () => `
     <div class="col-sm-6 mb-3">
       <input type="text" class="form-control" id="product-price" placeholder="Harga Jual Permeter" required>
     </div>
-    <button type="submit" id="add" class="btn btn-primary">Simpan</button>
+    <button type="submit" id="add" class="btn btn-primary" aria-label="save">Simpan</button>
   </div>
 </form>
 `;
@@ -424,8 +430,8 @@ const createDashboardTemplate = ({
             </div>
             <div class="card-footer">
                 <div class="stats">
-                    <i class="uil uil-info-circle"></i>
-                    <a href="/kasir/#/report">See detailed report</a>
+                    <i class="uil uil-info-circle text-info"></i>
+                    <a href="/kasir/#/report" class="text-info">See detailed report</a>
                 </div>
             </div>
         </div>
@@ -481,11 +487,11 @@ const createDashboardTemplate = ({
             </div>
             <div class="card-content table-responsive">
                 <table class="table table-hover">
-                    <thead class="text-primary">
+                    <thead class="table-light">
                         <tr>
-                            <th>Nama Kain</th>
-                            <th>Total Harga</th>
-                            <th>Karyawan</th>
+                            <th class="fw-bold">Nama Kain</th>
+                            <th class="fw-bold">Total Harga</th>
+                            <th class="fw-bold">Karyawan</th>
                         </tr>
                     </thead>
                     <tbody id="table-transaction"></tbody>

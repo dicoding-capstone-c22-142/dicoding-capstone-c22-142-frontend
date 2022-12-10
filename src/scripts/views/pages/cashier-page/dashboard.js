@@ -42,7 +42,7 @@ const Dashboard = {
   },
 
   _income(array) {
-    let element = null;
+    let element = 0;
     for (let index = 0; index < array.length; index += 1) {
       element += array[index].total_bill;
     }

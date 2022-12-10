@@ -1,4 +1,5 @@
-const {merge} = require('webpack-merge');
+const { merge } = require('webpack-merge');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const config = require('./webpack.config');
 
 module.exports = merge(config, {
@@ -12,11 +13,16 @@ module.exports = merge(config, {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        ]
-      }
-    ]
-  }
+              presets: ['@babel/preset-env'],
+            },
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: './sw.bundle.js',
+    }),
+  ],
 });

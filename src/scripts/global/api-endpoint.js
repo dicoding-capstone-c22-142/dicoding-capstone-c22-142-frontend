@@ -7,7 +7,7 @@ const API_ENDPOINT = {
   DETAIL: (id) => `${CONFIG.BASE_URL}products/${id}`,
   TRANSACTIONS: `${CONFIG.BASE_URL}transactions`,
   DETAILTRANSACTIONS: (id) => `${CONFIG.BASE_URL}transactions/${id}`,
-  USERS: (id) => `${CONFIG.BASE_URL}users/${id}`,
+  USERS: `${CONFIG.BASE_URL}users`,
 };
 
 export default API_ENDPOINT;

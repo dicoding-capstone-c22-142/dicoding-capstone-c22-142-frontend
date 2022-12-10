@@ -7,16 +7,16 @@ class SideBar extends HTMLElement {
     this.innerHTML = `
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3><img src="../icons/logo.jpeg" class="img-fluid" /><span>cashtex</span></h3>
+            <h3><img src="../icons/Asset - C22-142-72x72.png" class="img-fluid" alt="logo brand"/><span>cashtex</span></h3>
         </div>
         <ul class="list-unstyled components">
             <li>
-                <a href="/kasir/#/dashboard" class="dashboard"><i class="uil uil-home"></i><span>Dashboard</span></a>
+                <a href="/kasir/#/dashboard" class="dashboard"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
             </li>
 
             <div class="small-screen navbar-display">
                 <li class="d-lg-none d-md-block d-xl-none d-sm-block">
-                    <a href="/kasir/#/profile"><i class="uil uil-user-circle"></i><span>Profile</span></a>
+                    <a href="/kasir/#/profile"><i class="fa-regular fa-user"></i><span>Profile</span></a>
                 </li>
 
                 <li class="d-lg-none d-md-block d-xl-none d-sm-block">
@@ -25,13 +25,13 @@ class SideBar extends HTMLElement {
             </div>
 
             <li>
-                <a href="/kasir/#/manage"><i class="uil uil-book-medical"></i><span>Kelola Produk</span></a>
+                <a href="/kasir/#/manage"><i class="fa-solid fa-layer-group"></i><span>Kelola Produk</span></a>
             </li>
             <li>
-                <a href="/kasir/#/transaction"><i class="uil uil-transaction"></i><span>Transaksi</span></a>
+                <a href="/kasir/#/transaction"><i class="fa-solid fa-cash-register"></i></i><span>Transaksi</span></a>
             </li>
             <li>
-                <a href="/kasir/#/report"><i class="uil uil-file-graph"></i><span>Laporan</span></a>
+                <a href="/kasir/#/report"><i class="fa-solid fa-file-invoice-dollar"></i><span>Laporan</span></a>
             </li>
         </ul>
     </nav>

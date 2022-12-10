@@ -1,14 +1,13 @@
 .transaction-wrapper {
     max-height: 80vh;
     flex-direction: row;
-    overflow: scroll;
     background-color: white;
     border-radius: 10px;
 
     .display-image {
         width: 100%;
         height: 300px;
-        background-color: #eee;
+        background-color: #eaeaea;
         border-radius: 5px;
         margin: 20px;
     }
@@ -19,7 +18,7 @@
         width: 100%;
         height: 300px;
         border-radius: 5px;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     .row {

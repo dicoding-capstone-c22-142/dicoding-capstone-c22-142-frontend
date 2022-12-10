@@ -2,7 +2,7 @@ import CashierApiSource from '../data/cashier-api-source';
 import CashierUrlParser from '../routes/cashier/url-cashier-parser';
 
 const transactionProcess = async ({
-  productName, productType, price, total, employee, received, lengthOfProduct,
+  productName, productType, price, total, employee, received, length,
 }) => {
   const transactions = {
     payment_method: 'Tunai',
@@ -13,7 +13,7 @@ const transactionProcess = async ({
     author: employee.value,
     received: received.value,
     change: parseInt(received.value, 10) - total,
-    amount: lengthOfProduct,
+    amount: length,
   };
   await CashierApiSource.productPurchases(transactions);
 
@@ -27,7 +27,7 @@ const transactionProcess = async ({
     current_stock: data.current_stock,
     capital: data.capital,
     product_length: data.product_length,
-    current_length: (data.current_length - lengthOfProduct).toFixed(1),
+    current_length: parseFloat((data.current_length - length).toFixed(1)),
   };
   await CashierApiSource.updateProduct(url.id, product);
 };

@@ -35,19 +35,33 @@
 
 .arrow-back {
     position: fixed;
-    font-size: 2em;
     font-weight: 600;
     z-index: 1;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    margin-top: 20px;
+    background-color: #0D5E78;
+
+    i {
+        font-weight: 900;
+    }
     a {
+        font-size: 1em;
+        border: none;
         display: block;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background-color: rgba(0, 0, 0, 0.05);
+        padding: 0px 10px;
+        color: white;
         text-align: center;
         display: inline-block;
         line-height: 40px;
     }
+}
+
+.arrow-back:hover {
+    background-color: #104152;
+     i, a {
+        color: white;
+     }
 }
 
 form.product {
@@ -62,7 +76,6 @@ form.product {
         height: 200px;
         background-color: #eee;
         border-radius: 5px;
-        margin-top: 5px;
         background-image: url("/src/public/images/no-image.png");
         background-repeat: no-repeat;
         background-position: center;
@@ -99,7 +112,7 @@ form.product {
         }
         .price {
             font-size:.9em;
-            color: #1891b0;
+            color: #0D5E78;
         }
         .stock {
             font-size: .8em;

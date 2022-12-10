@@ -11,7 +11,7 @@ const DetailProducts = {
   async render() {
     return `
     <div class="arrow-back">
-      <a href="/kasir/#/manage"<i class="uil uil-arrow-left"></i></a>
+      <a href="/kasir/#/manage"><i class="uil uil-arrow-left"></i> Kembali</a>
     </div>
     <form class="product"></form>
     `;
@@ -30,6 +30,7 @@ const DetailProducts = {
     const productImage = document.querySelector('.display-image img');
     const productName = document.querySelector('#product-name');
     const productLength = document.querySelector('#product-length');
+    const currentLength = document.querySelector('#current-length');
     const productModal = document.querySelector('#capital');
     const productType = document.querySelector('#product-type');
     const productPrice = document.querySelector('#product-price');
@@ -62,8 +63,8 @@ const DetailProducts = {
         initital_stock: parseInt(productStok.value, 10),
         current_stock: parseInt(productStok.value, 10),
         capital: parseInt(productModal.value, 10),
-        product_length: data.product_length,
-        current_length: parseFloat(productLength.value),
+        product_length: parseFloat(productLength.value),
+        current_length: parseFloat(currentLength.value),
       };
       if (!productInput.files[0]) {
         product.product_image = productImage.getAttribute('src');

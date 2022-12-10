@@ -32,8 +32,6 @@ class CashierApp {
     this._mainContent.innerHTML = await page.render();
     await page.afterRender();
 
-    console.log(this._sideBar);
-
     // media query for add-product button
     const widthOfscreen = window.matchMedia('(max-width: 992px)');
     const addButton = document.querySelector('#add-product');
