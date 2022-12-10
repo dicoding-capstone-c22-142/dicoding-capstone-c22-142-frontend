@@ -8,7 +8,7 @@ WORKDIR /code
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN apk install dh-autoreconf
+RUN apk add dh-autoreconf
 
 RUN npm install
 
