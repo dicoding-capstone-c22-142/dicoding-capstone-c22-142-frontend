@@ -1,10 +1,10 @@
-FROM node:16-alpine
+FROM node:16-slim
 
 # Create app directory
 WORKDIR /code
 
-RUN apk --update upgrade
-RUN apk add autoconf automake make gcc g++ libtool
+# RUN apk --update upgrade
+# RUN apk add autoconf automake make gcc g++ libtool
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
