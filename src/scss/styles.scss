@@ -131,6 +131,9 @@ ul {
   .icon-box:hover {
     border-color: #DFF6FF;
     background-color:#DFF6FF;
+    i{
+      color:#151112;
+    }
   }
   
   .icon-box:hover h4 a {
@@ -140,6 +143,55 @@ ul {
   .fw-bolder{
     margin-top:10%;
   }
+
+  .box {
+		border: solid 3px #DFF6FF;
+    border-radius: 5%;
+		padding: 2.75em 1.75em 2.75em 1.75em;
+    height:500px;
+    transition: 0.3s;
+	}
+
+  .box:hover{
+    background: #DFF6FF;
+  }
+
+		.box img {
+			position: relative;
+      width: 200px;
+      left: 1em;
+      padding: 10px 10px 0 10px;
+      border-radius: 50%;
+		}
+
+		.box.post header {
+			padding-top: 1em;
+			margin: 0 0 2em 0;
+		}
+
+		.box.post h2 {
+			font-size: 2.5em;
+			letter-spacing: -0.015em;
+		}
+
+		.box.post header > p {
+			margin-top: 1.25em;
+			font-size: 1.25em;
+		}
+
+		.box footer ul.actions {
+			margin-bottom: 0;
+		}
+
+   .social a, i{
+      color: #919191;
+      transition: 0.3s;
+      font-size: 1.5em;
+   }
+   i:hover{
+			color: #151112;
+   }
+
   
    @media screen and (min-width: 968px){
      .content-about{
@@ -160,10 +212,44 @@ ul {
       .content-about{
         height:120vh;
       }
+      .box{
+        width:100%;
+      }
+
+      .box img{
+        width:60%;
+      }
   }
   
-    @media screen and (min-width: 700px){
-    
+    @media screen and (max-width: 760px){
+      .box {
+				padding: 25px 15px 20px 15px;
+        text-align: center;
+        margin-bottom: 40px;
+			}
+
+				.box .image {
+          position: static;
+					left: 15px;
+					top: 15px;
+					margin: -40px 0 40px -30px;
+				}
+
+				.box.post header {
+					padding-top: 0;
+					margin: 0 0 1em 0;
+				}
+
+				.box.post h2 {
+					font-size: 1.5em;
+					line-height: 1.5em;
+				}
+
+				.box.post header > p {
+					margin-top: 0;
+					font-size: 1em;
+				}
+
       .text-wrap{
         max-width:500px;
       }
@@ -171,5 +257,28 @@ ul {
       .content-about{
         height:150vh;
       }
+      
     }
 
+  @media screen and (max-width: 980px) {
+
+    .box{
+      width: 100%;
+    }
+    .box img{
+      left:2.5em;
+    }
+
+      .box footer ul.actions li {
+        margin: 1em 0 0 0;
+        display: block;
+      }
+
+        .box footer ul.actions li .button {
+          width: 100%;
+        }
+
+        .box footer ul.actions li:first-child {
+          margin-top: 0;
+        }
+  }
