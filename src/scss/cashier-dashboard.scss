@@ -145,7 +145,10 @@ a:focus {
     }
     
     ul li a i {
-        font-size: 1.5em;
+        display: inline-block;
+        font-size: 1.2em;
+        width: 20px;
+        text-align: center;
         font-weight: 600;
         position: relative;
         margin-right: 15px;

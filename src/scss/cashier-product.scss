@@ -39,17 +39,18 @@
     z-index: 1;
     border-radius: 10px;
     transition: all 0.5s ease;
+    margin-top: 20px;
+    background-color: #0D5E78;
 
     i {
         font-weight: 900;
     }
-    button {
+    a {
         font-size: 1em;
         border: none;
         display: block;
         padding: 0px 10px;
-        background-color:transparent;
-        color: black;
+        color: white;
         text-align: center;
         display: inline-block;
         line-height: 40px;
@@ -57,7 +58,10 @@
 }
 
 .arrow-back:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: #104152;
+     i, a {
+        color: white;
+     }
 }
 
 form.product {
