@@ -8,18 +8,12 @@ WORKDIR /code
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install -g npm@9.2.0
+RUN apk install dh-autoreconf
 
 RUN npm install
-
-RUN npm npm audit fix --force
-
-RUN npm run build
-
-RUN npm run build-image
 
 # Bundle app source
 COPY . /code/
 
 EXPOSE 32142
-CMD [ "npm", "run", "serve" ]
+CMD [ "npm", "run", "production" ]
