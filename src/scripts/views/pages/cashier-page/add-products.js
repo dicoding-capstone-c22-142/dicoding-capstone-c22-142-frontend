@@ -65,8 +65,8 @@ const AddProducts = {
             };
             try {
               if (!productName.value || !imageUrl || !productPrice.value
-                || !productType.value || !productStockInt || !productLengthFloat
-                || !productModal) {
+                || !productType.value || !productStok.value || !productLength.value
+                || !productModal.value) {
                 throw String('Masukkan data dahulu!');
               } else {
                 const response = await CashierApiSource.addProduct(product);
