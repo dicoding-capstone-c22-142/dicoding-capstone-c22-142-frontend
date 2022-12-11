@@ -4,10 +4,10 @@ const pwShowHide = () => {
   showHide.addEventListener('click', () => {
     if (pwField.type === 'password') {
       pwField.type = 'text';
-      showHide.classList.replace('uil-eye-slash', 'uil-eye');
+      showHide.classList.replace('fa-eye-slash', 'fa-eye');
     } else {
       pwField.type = 'password';
-      showHide.classList.replace('uil-eye', 'uil-eye-slash');
+      showHide.classList.replace('fa-eye', 'fa-eye-slash');
     }
   });
 };
