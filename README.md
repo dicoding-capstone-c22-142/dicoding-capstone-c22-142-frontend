@@ -21,3 +21,7 @@ Cashtex, Web-Based Application Cashier Textile Fabric Store
 `npm run production`
 
 * Service running on `localhost:22142`
+
+
+# CashTex User Guide
+[User Guide - v202212120052](https://drive.google.com/file/d/1oLPhWGabSY8OmtENHkke_TFAC7ruedC7/preview)
