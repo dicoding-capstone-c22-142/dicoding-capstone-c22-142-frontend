@@ -7,11 +7,11 @@ app-bar {
     z-index: 99;
 
     a, button {
+      font-family: 'Poppins', sans-serif;
       display: inline-block;
       text-decoration: none;
       padding: 10px;
       color: black;
-      font-weight: 600;
     }
     
     h2 {
