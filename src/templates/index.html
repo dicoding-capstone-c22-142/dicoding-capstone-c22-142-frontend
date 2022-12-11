@@ -3,12 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#fff"/>
+    <meta name="theme-color" content="#253944"/>
     <meta name="dicoding:email" content="rezaferdian145@gmail.com">
     <link rel="icon" href="./icons/Asset - C22-142-72x72.png">
     <link rel="apple-touch-icon" href="./icons/Asset - C22-142-192x192.png">
     <link rel="manifest" href="./app.webmanifest">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -16,113 +18,108 @@
     <div class="wrapper">
       <header-bar id="home"></header-bar>
       <section id="about">
-      <div class="d-flex flex-column mb-3 align-items-center" style="height: 100vh; background-color: #fff">
-        <div class="about">
-          <h1 class= "fw-bolder text-center">About</h1>
-          <div class="text-wrap"><p class="text-center">Cashtex merupakan aplikasi kasir yang memudahkan toko tekstil untuk 
-          bertransaksi dengan pelanggannya. Cashtex dapat mengelola laporan seluruh transaksi penjualan, 
-          tanpa harus  membeli mesin kasir. Aplikasi yang kami bangun berbasis website, bisa digunakan secara 
-          offline, dan dapat digunakan di berbagai device</p>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5 mb-3">
+              <img src="/images/cashtex_device_view-large.png" alt="cashtex device">
+            </div>
+            <div class="col-md-7">
+              <div class="about-wrapper">
+                <h1>About</h1>
+                <p>Cashtex merupakan aplikasi kasir yang memudahkan toko tekstil untuk 
+                bertransaksi dengan pelanggannya. Cashtex dapat mengelola laporan seluruh transaksi penjualan, 
+                tanpa harus  membeli mesin kasir. Aplikasi yang kami bangun berbasis website, bisa digunakan secara 
+                offline, dan dapat digunakan di berbagai device</p>
+              </div>
+            </div>
           </div>
-          </div>
+        </div>
+      </section>
   
-          <div class="features">
-            <h1 class= "fw-bolder text-center">Features</h1>
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-4 col-md-6">
-                  <div class="icon-box">
-                    <div class="icon"></div>
-                    <h4 class="title">Dashboard</h4>
-                    <p class="description">Anda dapat dengan mudah mengatur pengguna dan daftar transaksi dengan 
-                    halaman dashboard</p>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
-                  <div class="icon-box">
-                    <div class="icon"></div>
-                    <h4 class="title">Report</h4>
-                    <p class="description">Pantau hasil penjualan anda dengan halaman Report dengan jangka waktu yang dapat anda tentukan sendiri</p>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
-                  <div class="icon-box">
-                    <div class="icon"></div>
-                    <h4 class="title">Transaction history</h4>
-                    <p class="description">Segala transaksi akan secara otomatis tercatat di halaman Transaction history</p>
-                  </div>
-                </div>
+      <section id="features">
+        <div class="container">
+          <h1 class="fw-bold">Features</h1>
+          <div class="row justify-content-center mb-5">
+            <div class="col-lg-4 col-md-6">
+              <div class="icon-box">
+                <h4 class="title">Dashboard</h4>
+                <p class="description">Anda dapat dengan mudah mengatur pengguna dan daftar transaksi dengan halaman dashboard</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="icon-box">
+                <h4 class="title">Report</h4>
+                <p class="description">Pantau hasil penjualan anda dengan halaman Report dengan jangka waktu yang dapat anda tentukan sendiri</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="icon-box">
+                <h4 class="title">Transaction history</h4>
+                <p class="description">Segala transaksi akan secara otomatis tercatat di halaman Transaction history</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section id="team">
+      <div class="container">
+        <h2 class="mt-5 mb-3 text-center">Our Team</h2>
+        <div class="row g-3 mb-5">
+          <div class="col-md-6 col-lg-3">
+            <div class="box-wrapper">
+              <div class="img-wrapper mx-auto">
+                <img src="../assets/team/1668190263783.jpg" alt=""/>
+              </div>
+              <p class="fw-bolder fs-5 name">Reza Ferdian</p>
+              <p>Front End Web Developer</p>
+              <div class="social">
+                <a href="https://github.com/Rezaferdian26"><i class="fa fa-github mr-md-4 w-10"></i></a>
+                <a href="https://www.linkedin.com/in/reza-ferdian-919b551b3/"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="box-wrapper">
+              <div class="img-wrapper mx-auto">
+                <img src="../assets/team/1669532104043.jpg" alt=""/>
+              </div>
+              <p class="fw-bolder name">Faturrachman Mochammad</p>
+              <p>Back End Developer</p>
+              <div class="social">
+                <a href="https://github.com/faturra"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/faturrachmanmochammad"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="box-wrapper">
+              <div class="img-wrapper mx-auto">
+                <img src="../assets/team/1668350420197.jpg" alt=""/>
+              </div>
+              <p class="fw-bolder name">Aldi Findani</p>
+              <p>UI/UX</p>
+              <div class="social">
+                <a href="https://github.com/Aldifindani17"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/aldi-findani-1a1b3b256"><i class="fa fa-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="box-wrapper">
+              <div class="img-wrapper mx-auto">
+                <img src="../assets/team/1664201003708.jpg" alt=""/>
+              </div>
+              <p class="fw-bolder name">Gregorius Damar</p>
+              <p>Front End Web Developer</p>
+              <div class="social">
+                <a href="https://github.com/dqmirr"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/gregorius-damar-b8ab4b251"><i class="fa fa-linkedin"></i></a>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <section id="team" class="team section-bg pb-lg-4">
-        
-  
-        <div class="section-title">
-          <h2 class="fw-bolder text-center mb-md-4">Our Team</h2>
-        </div>
-        <div class="container">
-        <div class="row justify-content-center mb-md-4">
-          <div class="col-lg-4 col-md-6">
-            <section class="box">
-              <img class="mx-auto" src="../assets/team/1668190263783.jpg" alt=""/>
-              <header>
-                <h3 class="fw-bolder">Reza Ferdian</h3>
-              </header>
-              <p>Front End</p>
-              <footer class="social">
-                <a href="https://github.com/Rezaferdian26"><i class="fa fa-github mr-md-4 w-10"></i></a>
-                <a href="https://www.linkedin.com/in/reza-ferdian-919b551b3/"><i class="fa fa-linkedin"></i></a>
-              </footer>
-            </section>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <section class="box">
-              <img class="mx-auto" src="../assets/team/1669532104043.jpg" alt=""/>
-              <header>
-                <h3 class="fw-bolder">Faturrachman Mochammad</h3>
-              </header>
-              <p>Back End</p>
-              <footer class="social">
-                <a href="https://github.com/faturra"><i class="fa fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/faturrachmanmochammad"><i class="fa fa-linkedin"></i></a>
-              </footer>
-            </section>
-          </div>
-          </div>
-          <div class="row justify-content-center">
-          <div class="col-lg-4 col-md-6">
-            <section class="box">
-            <img class="mx-auto" src="../assets/team/1668350420197.jpg" alt=""/>
-              <header>
-                <h3 class="fw-bolder">Aldi Findani</h3>
-              </header>
-              <p>UI/UX</p>
-              <footer class="social">
-                <a href="https://github.com/Aldifindani17"><i class="fa fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/aldi-findani-1a1b3b256"><i class="fa fa-linkedin"></i></a>
-              </footer>
-            </section>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <section class="box">
-              <img class="mx-auto" src="../assets/team/1664201003708.jpg" alt=""/>
-              <header>
-                <h3 class="fw-bolder">Gregorius Damar</h3>
-              </header>
-              <p>Front End</p>
-              <footer class="social">
-                <a href="https://github.com/dqmirr"><i class="fa fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/gregorius-damar-b8ab4b251"><i class="fa fa-linkedin"></i></a>
-              </footer>
-            </section>
-          </div>
-        </div>
-        </div>
-        </div>
     </section>
 
       <footer-bar></footer-bar>

@@ -2,15 +2,16 @@ app-bar {
     display: flex;
     position: fixed;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     z-index: 99;
 
     a, button {
+      font-family: 'Poppins', sans-serif;
       display: inline-block;
       text-decoration: none;
       padding: 10px;
       color: black;
-      font-weight: 600;
     }
     
     h2 {
@@ -21,8 +22,7 @@ app-bar {
     
     .drawer {
       display: flex;
-      width: 85%;
-      margin-left: 10px;
+      width: 65%;
       justify-content: space-between;
       align-items: center;
     }
@@ -33,34 +33,18 @@ app-bar {
     
     ul li {
       list-style: none;
+      margin-right: 10px;
     }
     
     ul li a:hover {
       color: white;
     }
     
-    .signup {
-      background-color: black;
-    }
-    
-    
-    .signup {
-      background-color: black;
-      color: white;
-      padding: 10px 50px;
-      border-radius:25px;
-      margin-left: 10px;
-      transition: .4s;
-    }
-    
-    .signup:hover {
-      background-color: white;
-      color: black;
-    }
-    
     .btn-login {
       background-color: transparent;
       border: 2px solid white;
+      font-weight: bold;
+      color: white;
       border-radius: 25px;
       cursor: pointer;
       padding: 10px 20px;
@@ -85,13 +69,6 @@ app-bar {
 .active-nav {
     background-color: #1c2a35;
     transition: all 350ms ease-in-out;
-    .signup {
-      background-color: white;
-      color: black;
-    }
-    .signup:hover {
-      background-color: #e2dbda;
-    }
     .btn-login {
       color: white;
     }
@@ -113,7 +90,7 @@ app-bar {
             flex-direction: column;
             justify-content: flex-start;
             position: fixed;
-            transform: translateX(100%);
+            transform: translateX(120%);
             inset: 0 0 0 30%;
             padding: min(30vh, 10rem) 1em;
             background-color: hsl(0 0% 0% / 0.5);
@@ -185,7 +162,20 @@ app-bar {
         }
 
         .open {
-            transform: translate(0, 0);
-        }
+          transform: translate(20%, 0);
+        }    
+    }
+    .active-nav .drawer {
+      ul a {
+      color: black;
+      }
+      button {
+        background-color: black;
+        border-color: black;
+      }
+      button:hover {
+        background-color: white;
+        color: black;
+      }
     }
 }
