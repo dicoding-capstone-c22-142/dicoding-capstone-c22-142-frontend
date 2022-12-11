@@ -1,5 +1,6 @@
 import CashierApiSource from '../../../data/cashier-api-source';
 import CashierUrlParser from '../../../routes/cashier/url-cashier-parser';
+import printDiv from '../../../utils/print';
 import sideBarActive from '../../../utils/sideBar-active';
 import { createDetailReportTemplate } from '../../templates/cashier/cashier-template-creator';
 
@@ -9,9 +10,9 @@ const detailReport = {
     <div class="arrow-back">
       <a href="/kasir/#/report""><i class="fa-solid fa-left-long"></i> Kembali</a>
     </div>
-    <form class="detail-report"></form>
+    <form class="detail-report mt-3" id="print-transaction"></form>
     <div class="print">
-      <button class="btn btn-success" aria-label="print">Cetak</button>
+      <button class="btn btn-success" id="print-button" aria-label="print">Cetak</button>
     </div>
     `;
   },
@@ -26,6 +27,12 @@ const detailReport = {
     const response = await CashierApiSource.getTransactionById(url.id);
 
     detailReportWrapper.innerHTML = createDetailReportTemplate(response);
+
+    const printButton = document.querySelector('#print-button');
+    printButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      printDiv('print-transaction');
+    });
   },
 };
 
