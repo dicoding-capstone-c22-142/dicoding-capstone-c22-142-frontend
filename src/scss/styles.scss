@@ -157,9 +157,9 @@ ul {
   }
 
 		.box img {
-			position: relative;
+			display: block;
+      position: relative;
       width: 200px;
-      left: 1em;
       padding: 10px 10px 0 10px;
       border-radius: 50%;
 		}
