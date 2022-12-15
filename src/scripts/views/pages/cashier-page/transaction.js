@@ -27,6 +27,7 @@ const Transaction = {
     const productList = document.querySelector('.product-list');
     const products = await CashierApiSource.getAllProducts();
     const searchElement = document.querySelector('#search-product');
+    const searchButton = document.querySelector('[aria-label="search button"]');
 
     products.filter((product) => product.outstock === false).forEach((product) => {
       productList.innerHTML += createProductItemTemplate(product, 'transaction');
@@ -36,6 +37,10 @@ const Transaction = {
       if (event.key === 'Enter') {
         Search.productAvailable(searchElement.value.trim());
       }
+    });
+
+    searchButton.addEventListener('click', async (event) => {
+      Search.products(searchElement.value);
     });
   },
 };
