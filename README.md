@@ -20,4 +20,12 @@ Cashtex, Web-Based Application Cashier Textile Fabric Store
 * Run service production mode
 `npm run production`
 
-* Service running on `localhost:22142`
+* Development mode service running on `localhost:22142`
+
+* Production mode service running on `localhost:32142`
+
+
+# CashTex User Guide
+[User Guide - v202212121004](https://drive.google.com/file/d/1fvemGyR4y3tuFW3IvLUzCpuCnGZ8HgfF/preview)
+
+Copyright © 2022 Dicoding Capstone C22-142
