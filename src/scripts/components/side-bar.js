@@ -28,7 +28,7 @@ class SideBar extends HTMLElement {
                 <a href="/kasir/#/manage"><i class="fa-solid fa-layer-group"></i><span>Kelola Produk</span></a>
             </li>
             <li>
-                <a href="/kasir/#/transaction"><i class="fa-solid fa-cash-register"></i></i><span>Transaksi</span></a>
+                <a href="/kasir/#/transaction"><i class="fa-solid fa-cash-register"></i><span>Transaksi</span></a>
             </li>
             <li>
                 <a href="/kasir/#/report"><i class="fa-solid fa-file-invoice-dollar"></i><span>Laporan</span></a>

@@ -1,3 +1,4 @@
+import { async } from 'regenerator-runtime';
 import CashierApiSource from '../../../data/cashier-api-source';
 import Search from '../../../utils/Search';
 import sideBarActive from '../../../utils/sideBar-active';
@@ -29,6 +30,7 @@ const Manage = {
     const productList = document.querySelector('.product-list');
     const products = await CashierApiSource.getAllProducts();
     const searchElement = document.querySelector('#search-product');
+    const searchButton = document.querySelector('[aria-label="search button"]');
 
     document.querySelector('#sidebarCollapse').addEventListener('click', () => {
       const addButtonProduct = document.querySelector('#add-product');
@@ -43,6 +45,10 @@ const Manage = {
       if (event.key === 'Enter') {
         Search.products(searchElement.value);
       }
+    });
+
+    searchButton.addEventListener('click', async (event) => {
+      Search.products(searchElement.value);
     });
   },
 };
