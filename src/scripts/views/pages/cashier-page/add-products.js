@@ -28,8 +28,6 @@ const AddProducts = {
       const productPrice = document.querySelector('#product-price');
       const productStok = document.querySelector('#product-stock');
       const productLength = document.querySelector('#product-length');
-      const productLengthFloat = parseFloat(productLength.value);
-      const productStockInt = parseInt(productStok.value, 10);
       let previewImage = '';
 
       // preview image
@@ -58,10 +56,10 @@ const AddProducts = {
               product_image: imageUrl,
               product_price: parseInt(productPrice.value, 10),
               product_type: productType.value,
-              current_stock: productStockInt,
+              current_stock: productStok.value,
               capital: parseInt(productModal.value, 10),
-              product_length: productLengthFloat,
-              current_length: parseFloat((productLengthFloat * productStockInt).toFixed(1)),
+              product_length: productLength.value,
+              current_length: parseFloat(productLength.value * productStok.value).toFixed(1),
             };
             try {
               if (!productName.value || !imageUrl || !productPrice.value
@@ -72,6 +70,7 @@ const AddProducts = {
                 const response = await CashierApiSource.addProduct(product);
                 if (response.status === 'success') {
                   JsLoadingOverlay.hide();
+                  window.location = '/kasir/#/manage';
                   Swal.fire(
                     'Good job!',
                     'Data berhasil ditambahkan',
