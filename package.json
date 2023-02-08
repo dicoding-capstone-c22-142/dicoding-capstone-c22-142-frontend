@@ -8,7 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist",
     "build-image": "node sharp.js",
-    "production": "npm run build && npm run build-image && npm run serve"
+    "production": "npm run build && npm run build-image"
   },
   "repository": {
     "type": "git",
